@@ -1,5 +1,20 @@
 @import 'tailwindcss';
-@import 'tailwindcss-primeui';
+
+/* =============================================
+   ORDRE DES LAYERS (du moins au plus prioritaire)
+   
+   base       → resets, variables, éléments HTML bruts
+   components → classes réutilisables (.btn, .card, .modal…)
+   pages      → styles spécifiques à une page ou vue
+   utilities  → classes utilitaires one-off (.mt-4, .hidden…)
+                (Tailwind écrit aussi dans utilities)
+   ============================================= */
+
+@layer base, components, pages, utilities;
+
+/* =============================================
+   FONTS
+   ============================================= */
 
 @font-face {
   font-family: 'Montserrat';
@@ -10,97 +25,109 @@
 }
 
 @font-face {
-  font-family: 'extrabold';
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 800;
   src: url('../fonts/Montserrat/static/Montserrat-ExtraBold.ttf') format('truetype');
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'bold';
-  font-style: normal;
-  font-weight: 800;
-  src: url('../fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
-  font-display: swap;
-}
+/* =============================================
+   BASE — resets & variables
+   ============================================= */
 
 @layer base {
   :root {
-    --primary-dark: #10354c;
-    --primary: #1e3a52;
-    --primary-light: #27496d;
-    --primary-light-hover: #194f71;
-    --primary-dark-hover: #1c577b;
-    --primary-darkest: #1c5980;
-    --secondary: #e52434;
-    --success: #067e3d;
-    --accent-peach: #e29578;
-    --accent-peach-light: #ffe9d6;
-    --warning: #fbc51e;
-    --success-bg: #d7fdd7;
-    --success-strong: #22a121;
-    --gray: #afafaf;
-    --gray-light: #e1e2e3;
-    --gray-dark: #4e4f54;
-    --background: #f4f7f9;
-    --background-alt: #f8f9fa;
-    --text-muted: #646464;
-    --background-soft: #f9fafb;
-    --border: #e5e7eb;
-    --border-light: #f3f4f6;
-    --text-dark: #374151;
-    --text-secondary: #6b7280;
-    --success-dark: #059669;
-    --success-bg-light: #d1fae5;
-    --success-darker: #065f46;
-    --warning-bg: #fed7aa;
-    --warning-dark: #92400e;
-    --gray-blue: #b6c6d6;
-    --warning-strong: #facc15;
-    --success-stronger: #22c55e;
-    --accent-orange: #f97316;
-    --accent-blue: #3b82f6;
-    --accent-purple: #8b5cf6;
-    --accent-pink: #ec4899;
-    --accent-blue-light: #60a5fa;
-    --gray-medium: #999;
-    --black-alpha: #000000b2;
-    --white: #fff;
-    --gray-lightest: #f2f2f2;
-    --black: #000;
-    --background-gray: #f5f5f5;
-    --text-muted: #8f8f8f;
-    --gray-alpha: #c4c4c4;
-    --gray-strong: #6b6b6b;
-    --background-gray-light: #ececf0;
-    --text-title: #101828;
-    --text-label: #4a5565;
-    --danger: #dc3545;
-    --warning-variant: #fbc51e;
-    --warning-variant2: #fbc51e;
-    --success-variant: #056a32;
-    --success-dark: #047504;
-    --warning-bg: #f4bd19;
-    --danger-dark: #cc0000;
-    --accent-gray-light: #d6e4fe;
-    --gray-muted: #586166;
-    --gray-muted-alt: #8d9396;
+    /* --- Brand colors --- */
+    --primary-darkest:        #10354c;
+    --primary-dark:           #1e3a52;
+    --primary:                #27496d;
+    --primary-light:          #194f71;
+    --primary-light-hover:    #1c577b;
+    --primary-dark-hover:     #1c5980;
+
+    --secondary:              #e52434;
+    --danger:                 #dc3545;
+    --danger-dark:            #cc0000;
+
+    /* --- Feedback colors --- */
+    --success:                #067e3d;
+    --success-strong:         #22a121;
+    --success-stronger:       #22c55e;
+    --success-dark:           #059669;
+    --success-darker:         #065f46;
+    --success-bg:             #d7fdd7;
+    --success-bg-light:       #d1fae5;
+    --success-variant:        #056a32;
+
+    --warning:                #fbc51e;
+    --warning-strong:         #facc15;
+    --warning-bg:             #fed7aa;
+    --warning-dark:           #92400e;
+
+    /* --- Neutrals --- */
+    --white:                  #fff;
+    --black:                  #000;
+    --black-alpha:            #000000b2;
+
+    --gray-lightest:          #f2f2f2;
+    --gray-light:             #e1e2e3;
+    --gray-alpha:             #c4c4c4;
+    --gray:                   #afafaf;
+    --gray-medium:            #999;
+    --gray-muted-alt:         #8d9396;
+    --gray-muted:             #586166;
+    --gray-dark:              #4e4f54;
+
+    /* --- Backgrounds --- */
+    --background:             #f4f7f9;
+    --background-alt:         #f8f9fa;
+    --background-soft:        #f9fafb;
+    --background-gray:        #f5f5f5;
+    --background-gray-light:  #ececf0;
+
+    /* --- Borders --- */
+    --border:                 #e5e7eb;
+    --border-light:           #f3f4f6;
+
+    /* --- Text --- */
+    --text-dark:              #374151;
+    --text-secondary:         #6b7280;
+    --text-muted:             #646464;
+    --text-title:             #101828;
+    --text-label:             #4a5565;
+
+    /* --- Accents --- */
+    --gray-blue:              #b6c6d6;
+    --accent-gray-light:      #d6e4fe;
+    --accent-peach:           #e29578;
+    --accent-peach-light:     #ffe9d6;
+    --accent-orange:          #f97316;
+    --accent-blue:            #3b82f6;
+    --accent-blue-light:      #60a5fa;
+    --accent-purple:          #8b5cf6;
+    --accent-pink:            #ec4899;
   }
 
   *,
-  ::after,
-  ::before {
+  ::before,
+  ::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: 14px;
   }
 
   body {
     font-family:
       'Montserrat',
-      sans-serif,
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -108,21 +135,16 @@
       Roboto,
       'Helvetica Neue',
       Arial,
-      'Noto Sans',
-      sans-serif,
-      'Apple Color Emoji',
-      'Segoe UI Emoji',
-      'Segoe UI Symbol',
-      'Noto Color Emoji';
+      sans-serif;
+    font-size: 14px;
     background-color: var(--white);
-    color: black;
+    color: var(--black);
     overflow-x: hidden;
   }
 
   a {
     color: inherit;
     text-decoration: none;
-    transition: color var(--transition-fast);
   }
 
   button {
@@ -140,294 +162,250 @@
     display: block;
   }
 }
-.markdown-content {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.3rem;
-  max-width: 1320px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--text-dark);
-  word-wrap: break-word;
-  line-break: anywhere;
-}
 
-/* Mobile */
-@media (max-width: 640px) {
+/* =============================================
+   COMPONENTS — classes réutilisables
+   Ex : @layer components { .btn { … } }
+   ============================================= */
+
+@layer components {
+
+  /* --- Markdown content --- */
+
   .markdown-content {
-    padding: 2rem 1rem 1rem 1rem;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-dark);
+    word-wrap: break-word;
+    line-break: anywhere;
   }
 
-  .markdown-content h1,
-  .markdown-content h1 strong {
-    font-size: 2rem;
+  /* Headings */
+
+  .markdown-content :is(h1, h2, h3, h4, h5),
+  .markdown-content :is(h1, h2, h3, h4, h5) :is(strong, a) {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: var(--primary-dark);
+    text-decoration: none;
   }
 
-  .markdown-content h2,
-  .markdown-content h2 strong {
-    font-size: 1.75rem;
-  }
+  .markdown-content h1                     { font-size: 2.5rem; }
+  .markdown-content :is(h2, h3, h4, h5)   { font-size: 1.6rem; }
 
-  .markdown-content h3,
-  .markdown-content h3 strong {
-    font-size: 1.75rem;
-  }
+  /* Body text */
 
-  .markdown-content h4,
-  .markdown-content h4 strong {
-    font-size: 1.5rem;
-  }
-
-  .markdown-content h5,
-  .markdown-content h5 strong {
-    font-size: 1.5rem;
+  .markdown-content p,
+  .markdown-content ul li,
+  .markdown-content ol li,
+  .markdown-content a,
+  .markdown-content strong,
+  .markdown-content b {
+    font-size: 1.3rem;
   }
 
   .markdown-content p {
-    font-size: 1rem;
-    line-height: 1.6rem;
+    line-height: 2.4rem;
+    color: var(--text-dark);
+  }
+
+  /* Lists */
+
+  .markdown-content ul {
+    padding-left: 2rem;
   }
 
   .markdown-content ul li {
-    font-size: 1rem;
-    line-height: 1.4rem;
-  }
-
-  .markdown-content ol li {
-    font-size: 1rem;
+    list-style: disc;
     line-height: 1.6rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
   }
 
-  .markdown-content a {
-    font-size: 1rem;
-  }
-}
-
-/* Tablet */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .markdown-content {
-    padding: 4rem 3rem 2rem 3rem;
-    gap: 1.2rem;
-  }
-
-  .markdown-content h1,
-  .markdown-content h1 strong {
-    font-size: 2.5rem;
-  }
-
-  .markdown-content h2,
-  .markdown-content h2 strong {
-    font-size: 2rem;
-  }
-
-  .markdown-content h3,
-  .markdown-content h3 strong {
-    font-size: 2rem;
-  }
-
-  .markdown-content h4,
-  .markdown-content h4 strong {
-    font-size: 1.75rem;
-  }
-
-  .markdown-content h5,
-  .markdown-content h5 strong {
-    font-size: 1.75rem;
-  }
-
-  .markdown-content p {
-    font-size: 1.1rem;
-    line-height: 2rem;
-  }
-
-  .markdown-content ul li {
-    font-size: 1.1rem;
-    line-height: 1.5rem;
+  .markdown-content ol {
+    padding-left: 2rem;
+    counter-reset: li;
   }
 
   .markdown-content ol li {
-    font-size: 1.2rem;
-    line-height: 2rem;
+    line-height: 2.4rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
   }
+
+  .markdown-content ol li::before {
+    content: counter(li) '.';
+    counter-increment: li;
+    color: var(--primary-dark);
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1rem;
+  }
+
+  /* Links */
 
   .markdown-content a {
-    font-size: 1.1rem;
+    color: var(--primary);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+
+  .markdown-content a:hover {
+    color: var(--primary-dark);
+  }
+
+  /* Blockquote */
+
+  .markdown-content blockquote {
+    border-left: 4px solid var(--primary);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    background-color: var(--accent-gray-light);
+    color: var(--text-secondary);
+  }
+
+  /* Code */
+
+  .markdown-content code {
+    background-color: var(--background-gray);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--danger);
+  }
+
+  .markdown-content pre {
+    background-color: var(--background-gray);
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    border-left: 4px solid var(--primary);
+  }
+
+  .markdown-content pre code {
+    background-color: transparent;
+    padding: 0;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: var(--text-dark);
+  }
+
+  /* Images */
+
+  .markdown-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(16, 53, 76, 0.1);
+  }
+
+  /* Tables */
+
+  .markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+
+  .markdown-content table :is(th, td) {
+    border: 1px solid var(--border);
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  .markdown-content table th {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    font-weight: bold;
+  }
+
+  .markdown-content table tr:hover {
+    background-color: var(--accent-gray-light);
+  }
+
+  /* Scrollbar */
+
+  .overflow-y-auto {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-alpha) transparent;
+  }
+
+  .overflow-y-auto::-webkit-scrollbar {
+    width: 4px;
+    background: transparent;
+  }
+
+  .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: var(--gray-alpha);
+    border-radius: 4px;
+  }
+
+  /* Responsive — Mobile */
+
+  @media (max-width: 640px) {
+    .markdown-content {
+      padding: 2rem 1rem 1rem;
+      gap: 1rem;
+    }
+
+    .markdown-content h1                   { font-size: 2rem; }
+    .markdown-content :is(h2, h3)          { font-size: 1.75rem; }
+    .markdown-content :is(h4, h5)          { font-size: 1.5rem; }
+
+    .markdown-content p,
+    .markdown-content ul li,
+    .markdown-content ol li,
+    .markdown-content a                    { font-size: 1rem; }
+
+    .markdown-content p                    { line-height: 1.6rem; }
+    .markdown-content ul li                { line-height: 1.4rem; }
+    .markdown-content ol li                { line-height: 1.6rem; }
+  }
+
+  /* Responsive — Tablet */
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .markdown-content {
+      padding: 4rem 3rem 2rem;
+      gap: 1.2rem;
+    }
+
+    .markdown-content h1                   { font-size: 2.5rem; }
+    .markdown-content :is(h2, h3)          { font-size: 2rem; }
+    .markdown-content :is(h4, h5)          { font-size: 1.75rem; }
+
+    .markdown-content p,
+    .markdown-content a                    { font-size: 1.1rem; }
+    .markdown-content ul li                { font-size: 1.1rem; }
+    .markdown-content ol li                { font-size: 1.2rem; }
+
+    .markdown-content p                    { line-height: 2rem; }
+    .markdown-content ul li                { line-height: 1.5rem; }
+    .markdown-content ol li                { line-height: 2rem; }
   }
 }
 
-.markdown-content h1,
-.markdown-content h1 strong {
-  font-family: 'extrabold', sans-serif;
-  font-size: 2.5rem;
-  color: var(--primary-dark);
-  text-decoration: none !important;
+/* =============================================
+   PAGES — styles spécifiques à une vue
+   Ex : @layer pages { .home-hero { … } }
+   ============================================= */
+
+@layer pages {
+  /* à compléter par vue */
 }
 
-.markdown-content h2,
-.markdown-content h2 strong,
-.markdown-content h2 a {
-  font-family: 'extrabold', sans-serif;
-  font-size: 1.6rem;
-  color: var(--primary-dark) !important;
-  text-decoration: none !important;
-}
+/* =============================================
+   UTILITIES — classes one-off
+   Ex : @layer utilities { .sr-only { … } }
+   (Tailwind écrit aussi dans cette layer)
+   ============================================= */
 
-.markdown-content h3,
-.markdown-content h3 strong,
-.markdown-content h3 a {
-  font-family: 'extrabold', sans-serif;
-  font-size: 1.6rem;
-  color: var(--primary-dark) !important;
-  text-decoration: none !important;
-}
-
-.markdown-content h4,
-.markdown-content h4 strong,
-.markdown-content h4 a {
-  font-family: 'extrabold', sans-serif;
-  font-size: 1.6rem;
-  color: var(--primary-dark) !important;
-  text-decoration: none !important;
-}
-
-.markdown-content h5,
-.markdown-content h5 strong,
-.markdown-content h5 a {
-  font-family: 'extrabold', sans-serif;
-  font-size: 1.6rem;
-  color: var(--primary-dark) !important;
-  text-decoration: none !important;
-}
-
-.markdown-content p {
-  font-size: 1.3rem;
-  line-height: 2.4rem;
-  color: var(--text-dark);
-}
-.markdown-content ul {
-  padding-left: 2rem;
-}
-
-.markdown-content ul li {
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  color: var(--text-dark);
-  margin-bottom: 0.5rem;
-  list-style: disc;
-}
-
-.markdown-content ol {
-  padding-left: 2rem;
-}
-
-.markdown-content ol li {
-  font-size: 1.3rem;
-  line-height: 2.4rem;
-  color: var(--text-dark);
-  margin-bottom: 0.5rem;
-}
-
-.markdown-content ol li::before {
-  content: counter(li) '.';
-  counter-increment: li;
-  color: var(--primary-dark);
-  font-weight: bold;
-  display: inline-block;
-  width: 1rem;
-  margin-left: -1rem;
-}
-
-.markdown-content a {
-  color: var(--primary);
-  text-decoration: underline;
-  transition: color 0.3s ease;
-  font-size: 1.3rem;
-}
-
-.markdown-content a:hover {
-  color: var(--primary-dark);
-}
-
-.markdown-content blockquote {
-  border-left: 4px solid var(--primary);
-  padding-left: 1rem;
-  margin: 1.5rem 0;
-  color: var(--text-secondary);
-  background-color: var(--accent-gray-light);
-  padding: 1rem;
-  border-radius: 4px;
-}
-
-.markdown-content code {
-  background-color: var(--background-gray);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-family: 'Courier New', Courier, monospace;
-  color: var(--danger);
-}
-
-.markdown-content pre {
-  background-color: var(--background-gray);
-  padding: 1rem;
-  border-radius: 4px;
-  overflow-x: auto;
-  border-left: 4px solid var(--primary);
-}
-
-.markdown-content pre code {
-  background-color: transparent;
-  padding: 0;
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-  color: var(--text-dark);
-}
-
-.markdown-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(16, 53, 76, 0.1);
-}
-
-.markdown-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-}
-
-.markdown-content table th,
-.markdown-content table td {
-  border: 1px solid var(--border);
-  padding: 0.5rem;
-  text-align: left;
-}
-
-.markdown-content table th {
-  background-color: var(--primary-dark);
-  color: var(--white);
-  font-weight: bold;
-}
-
-.markdown-content table tr:hover {
-  background-color: var(--accent-gray-light);
-}
-
-.markdown-content strong,
-b {
-  font-size: 1.3rem;
-}
-
-.overflow-y-auto::-webkit-scrollbar {
-  width: 4px;
-  background: transparent;
-}
-.overflow-y-auto::-webkit-scrollbar-thumb {
-  background: var(--gray-alpha);
-  border-radius: 4px;
-}
-.overflow-y-auto {
-  scrollbar-width: thin;
-  scrollbar-color: var(--gray-alpha) transparent;
+@layer utilities {
+  /* à compléter si besoin */
 }
