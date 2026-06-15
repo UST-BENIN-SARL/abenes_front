@@ -2,5 +2,10 @@
     "i18n-ally.localesPaths": [
         "i18n",
         "i18n/locales"
-    ]
+    ],
+    "vetur.validation.template": false,
+    "vetur.validation.script": false,
+    "vetur.validation.style": false,
+    "vetur.languageFeatures.codeActions": false,
+    "vetur.experimental.templateInterpolationService": false
 }
