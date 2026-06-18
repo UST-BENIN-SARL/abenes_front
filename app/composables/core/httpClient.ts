@@ -15,24 +15,54 @@ type HttpClientConfig = {
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
 type HttpBody = BodyInit | Record<string, unknown> | null | undefined
 
-type HttpClientResult<T> = {
+export type HttpClientResult<T> = {
   data: ShallowRef<T | null>
-  error: Ref<{ message: string } | null>
+  error: Ref<{ message: string; status?: number } | null>
   pending: Ref<boolean>
 }
 
-export const useHttpClient = (config: HttpClientConfig = { BASE_URL: useBaseUrl() + '/api/' }) => {
-  const { access_token } = useAuth()
+// Endpoints that must never trigger a refresh-and-retry (avoids infinite loops)
+const AUTH_ENDPOINTS: string[] = [
+  Endpoints.auth.login,
+  Endpoints.auth.logout,
+  Endpoints.auth.refresh
+]
 
-  const headers =
-    config.headers ||
-    (() => {
-      const baseHeaders: Record<string, string> = {}
-      if (access_token.value) {
-        baseHeaders['Authorization'] = 'Bearer ' + access_token.value
+export const useHttpClient = (config: HttpClientConfig = { BASE_URL: useBaseUrl() + '/api/' }) => {
+  const { accessToken } = useAuth()
+  const { t } = useI18n()
+
+  const buildHeaders = (): Record<string, string> => {
+    if (config.headers) return { ...config.headers }
+
+    const baseHeaders: Record<string, string> = {}
+    if (accessToken.value) {
+      baseHeaders['Authorization'] = 'Bearer ' + accessToken.value
+    }
+    return baseHeaders
+  }
+
+  async function performFetch<T>(url: string, method: HttpMethod, body?: HttpBody): Promise<T> {
+    const headers: Record<string, string> = {
+      ...buildHeaders(),
+      'X-App-Language': getCurrentLocale().value
+    }
+
+    if (import.meta.server) {
+      const requestHeaders = useRequestHeaders(['cookie'])
+      if (requestHeaders.cookie) {
+        headers.cookie = requestHeaders.cookie
       }
-      return baseHeaders
-    })()
+    }
+
+    return (await $fetch<T>(url, {
+      method,
+      baseURL: config.BASE_URL,
+      body,
+      credentials: 'include',
+      headers
+    })) as T
+  }
 
   async function request<T>(
     url: string,
@@ -40,30 +70,32 @@ export const useHttpClient = (config: HttpClientConfig = { BASE_URL: useBaseUrl(
     body?: HttpBody
   ): Promise<HttpClientResult<T>> {
     const data = shallowRef<T | null>(null)
-    const error = ref<{ message: string } | null>(null)
+    const error = ref<{ message: string; status?: number } | null>(null)
     const pending = ref(true)
 
     try {
-      const response = await $fetch<T>(url, {
-        method: method,
-        baseURL: config.BASE_URL,
-        body: body,
-        headers: {
-          ...headers,
-          'X-App-Language': getCurrentLocale().value == 'en-US' ? 'en-EN' : 'fr-FR',
-        }
-      })
-      data.value = response
+      data.value = await performFetch<T>(url, method, body)
     } catch (errorCaught: unknown) {
-      const fetchError = errorCaught as { data?: { message?: string | string[] } }
+      const fetchError = errorCaught as { status?: number; data?: { message?: string | string[] } }
 
-      if (fetchError.data?.message) {
-        error.value = Array.isArray(fetchError.data.message)
-          ? { message: fetchError.data.message[0] }
-          : { message: fetchError.data.message }
-      } else {
-        error.value = { message: 'Erreur inattendue lors de la requête' }
+      if (fetchError.status === 401 && !AUTH_ENDPOINTS.includes(url)) {
+        const { refresh } = useAuthSession()
+        const refreshed = await refresh()
+
+        if (refreshed) {
+          try {
+            data.value = await performFetch<T>(url, method, body)
+            return { data, error, pending } as HttpClientResult<T>
+          } catch (retryErrorCaught: unknown) {
+            error.value = toErrorPayload(retryErrorCaught, t)
+            useCustomToast(error.value.message, 'error').temporary()
+            pending.value = false
+            return { data, error, pending } as HttpClientResult<T>
+          }
+        }
       }
+
+      error.value = toErrorPayload(fetchError, t)
       useCustomToast(error.value.message, 'error').temporary()
     } finally {
       pending.value = false
@@ -77,8 +109,7 @@ export const useHttpClient = (config: HttpClientConfig = { BASE_URL: useBaseUrl(
   }
 
   async function get<T>(url: string): Promise<HttpClientResult<T>> {
-    const response = await request<T>(url, 'GET')
-    return response
+    return request<T>(url, 'GET')
   }
 
   async function put<T>(url: string, body: HttpBody): Promise<HttpClientResult<T>> {
@@ -94,4 +125,20 @@ export const useHttpClient = (config: HttpClientConfig = { BASE_URL: useBaseUrl(
   }
 
   return { get, post, put, del, patch }
+}
+
+function toErrorPayload(
+  errorCaught: unknown,
+  t: (key: string) => string
+): { message: string; status?: number } {
+  const fetchError = errorCaught as { status?: number; data?: { message?: string | string[] } }
+
+  const message = Array.isArray(fetchError.data?.message)
+    ? fetchError.data?.message[0]
+    : fetchError.data?.message
+
+  return {
+    message: message ?? t('errors.unexpected'),
+    status: fetchError.status
+  }
 }

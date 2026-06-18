@@ -1,9 +1,8 @@
 import type { LocaleOption } from '~/types/i18n'
 
 export function useI18nLocale() {
-  const { locale } = useI18n()
+  const { locale, t } = useI18n()
   const nuxtApp = useNuxtApp()
-  const { t } = useI18n()
 
   const i18n = nuxtApp.$i18n as {
     setLocale: (locale: 'fr-FR' | 'en-US') => Promise<void>

@@ -3,6 +3,50 @@
     "locales": {
       "en-US": "Anglais",
       "fr-FR": "Français"
+    },
+    "nav": {
+      "home": "Accueil"
+    },
+    "footer": {
+      "rights": "Tous droits réservés."
+    },
+    "actions": {
+      "close": "Fermer",
+      "logout": "Se déconnecter"
+    },
+    "user": {
+      "login_success": "Connexion réussie.",
+      "logout_success": "Vous avez été déconnecté.",
+      "logout_error": "Une erreur est survenue lors de la déconnexion."
     }
+  },
+  "pages": {
+    "home": {
+      "seo_title": "Accueil",
+      "title": "Bienvenue sur SoLE SA",
+      "subtitle": "Votre tableau de bord"
+    },
+    "login": {
+      "seo_title": "Connexion",
+      "title": "Connexion",
+      "subtitle": "Entrez vos identifiants pour accéder à votre compte.",
+      "email": "Adresse email",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "loading": "Connexion en cours...",
+      "forgot_password": "Mot de passe oublié ?"
+    }
+  },
+  "validation": {
+    "required": "Ce champ est requis.",
+    "email": "Adresse email invalide.",
+    "password_min": "Le mot de passe doit contenir au moins 8 caractères.",
+    "file": {
+      "invalid_type": "Format de fichier non accepté (PDF, JPG, PNG, DOC, DOCX).",
+      "max_size": "Le fichier ne doit pas dépasser {max} Mo."
+    }
+  },
+  "errors": {
+    "unexpected": "Une erreur inattendue est survenue."
   }
 }

@@ -86,12 +86,92 @@ export function formatDateDDMMYYYY(
 /**
  * Formate un montant en devise locale
  */
-export function formatPrice(amount: number): string {
+export function formatPrice(amount: number | null | undefined, fallback: string = '-'): string {
+  if (amount === null || amount === undefined) return fallback
+
   return new Intl.NumberFormat(getCurrentLocale().value as string, {
     style: 'currency',
     currency: 'XOF',
     maximumFractionDigits: 0
   }).format(amount)
+}
+
+/**
+ * Formate une date avec l'heure selon la locale
+ */
+export function formatDateTime(
+  date: string | Date | null | undefined,
+  fallback: string = 'N/A'
+): string {
+  if (!date) return fallback
+  const d = date instanceof Date ? date : new Date(date)
+  if (isNaN(d.getTime())) return fallback
+
+  return d.toLocaleDateString(getCurrentLocale().value as string, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+}
+
+/**
+ * Formate l'heure d'une date selon la locale
+ */
+export function formatTime(date: string | Date | null | undefined, fallback: string = 'N/A'): string {
+  if (!date) return fallback
+  const d = date instanceof Date ? date : new Date(date)
+  if (isNaN(d.getTime())) return fallback
+
+  return d.toLocaleTimeString(getCurrentLocale().value as string, {
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+}
+
+/**
+ * Retourne une durée relative ("il y a 2 heures") selon la locale courante
+ */
+export function getTimeAgo(date: string | Date): string {
+  const d = date instanceof Date ? date : new Date(date)
+  const diffInSeconds = Math.floor((Date.now() - d.getTime()) / 1000)
+
+  const units: Array<[Intl.RelativeTimeFormatUnit, number]> = [
+    ['year', 31536000],
+    ['month', 2592000],
+    ['week', 604800],
+    ['day', 86400],
+    ['hour', 3600],
+    ['minute', 60]
+  ]
+
+  const rtf = new Intl.RelativeTimeFormat(getCurrentLocale().value as string, { numeric: 'auto' })
+
+  for (const [unit, seconds] of units) {
+    const interval = Math.floor(diffInSeconds / seconds)
+    if (interval >= 1) return rtf.format(-interval, unit)
+  }
+
+  return rtf.format(0, 'second')
+}
+
+/**
+ * Vérifie si une date correspond au jour courant
+ */
+export function isToday(date: string | Date): boolean {
+  const d = date instanceof Date ? date : new Date(date)
+  return d.toDateString() === new Date().toDateString()
+}
+
+/**
+ * Vérifie si une date correspond à la veille
+ */
+export function isYesterday(date: string | Date): boolean {
+  const d = date instanceof Date ? date : new Date(date)
+  const yesterday = new Date()
+  yesterday.setDate(yesterday.getDate() - 1)
+  return d.toDateString() === yesterday.toDateString()
 }
 
 /**
@@ -156,10 +236,10 @@ export const formatDateToGMTPlus1 = (date: Date): string => {
  * Construit l'URL d'une image à partir d'un chemin
  * Utilise l'API pour les chemins relatifs, ou retourne le chemin tel quel pour les URLs absolues
  */
-export const getImageUrl = (path: string | null | undefined): string => {
+export const getImageUrl = (path: string | null | undefined, baseUrl?: string): string => {
   if (!path) return ''
-
-  return `${useBaseUrl()}/api/files/download?path=${encodeURIComponent(path)}`
+  const base = baseUrl ?? useBaseUrl()
+  return `${base}/api/files/download?path=${encodeURIComponent(path)}`
 }
 
 /**

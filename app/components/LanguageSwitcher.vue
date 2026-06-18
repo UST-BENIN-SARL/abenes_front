@@ -43,7 +43,10 @@ const isOpen = ref(false)
 const { currentLocale, setLocale, availableLocales } = useI18nLocale()
 
 const currentOption = computed(() => {
-  return availableLocales.value.find((locale) => locale.code === currentLocale.value) ?? availableLocales.value[0]
+  return (
+    availableLocales.value.find((locale) => locale.code === currentLocale.value) ??
+    availableLocales.value[0]!
+  )
 })
 
 const toggleMenu = () => {

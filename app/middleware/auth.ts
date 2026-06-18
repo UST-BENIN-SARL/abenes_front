@@ -1,8 +1,7 @@
-// middleware/auth.ts
-export default defineNuxtRouteMiddleware((to, from) => {
-  // const isAuthenticated = useAuthStatus()
+export default defineNuxtRouteMiddleware(() => {
+  const isAuthenticated = useAuthStatus()
 
-  // if (!isAuthenticated) {
-  //   return navigateTo('/login')
-  // }
+  if (!isAuthenticated.value) {
+    return navigateTo('/login')
+  }
 })

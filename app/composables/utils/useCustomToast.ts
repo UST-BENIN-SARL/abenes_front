@@ -5,7 +5,7 @@ export const useCustomToast = (
   type: 'success' | 'error' | 'info' | 'warning' = 'info'
 ) => {
   return {
-    permanant: () => {
+    permanent: () => {
       toast(message, {
         type: type,
         autoClose: false,

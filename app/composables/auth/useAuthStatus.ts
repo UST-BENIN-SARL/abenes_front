@@ -8,7 +8,7 @@ const decodeBase64Url = (value: string) => {
 
 const isJwtExpired = (token: string) => {
   const parts = token.split('.')
-  if (parts.length !== 3) return false
+  if (parts.length !== 3 || !parts[1]) return false
 
   try {
     const payload = JSON.parse(decodeBase64Url(parts[1]))
@@ -20,16 +20,17 @@ const isJwtExpired = (token: string) => {
 }
 
 export const useAuthStatus = () => {
-  const { access_token } = useAuth()
-  const token = access_token.value as unknown as string
+  const { accessToken } = useAuth()
 
-  if (!token || typeof token !== 'string' || token.trim().length === 0) {
-    return false
-  }
+  const isAuthenticated = computed(() => {
+    const token = accessToken.value
 
-  if (isJwtExpired(token)) {
-    return false
-  }
+    if (!token || token.trim().length === 0) {
+      return false
+    }
 
-  return true
+    return !isJwtExpired(token)
+  })
+
+  return isAuthenticated
 }

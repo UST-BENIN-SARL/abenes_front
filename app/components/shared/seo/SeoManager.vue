@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 const route = useRoute()
+const { currentLocale } = useI18nLocale()
 
 const props = defineProps({
   title: { type: String, default: 'SoLE SA' },
@@ -26,7 +27,7 @@ useSeoMeta({
   ogUrl: computedUrl.value,
   ogType: 'website',
   ogSiteName: 'SoLE SA',
-  ogLocale: 'fr_FR',
+  ogLocale: currentLocale.value.replace('-', '_'),
   twitterCard: 'summary_large_image',
   twitterTitle: props.title,
   twitterDescription: props.description,
