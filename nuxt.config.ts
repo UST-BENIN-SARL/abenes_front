@@ -39,8 +39,13 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     'nuxt-swiper',
-    '@nuxtjs/leaflet'
+    '@nuxtjs/leaflet',
+    'shadcn-nuxt'
   ],
+  shadcn: {
+    prefix: 'Ui',
+    componentDir: '@/components/ui'
+  },
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL,
