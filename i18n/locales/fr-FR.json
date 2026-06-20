@@ -12,12 +12,17 @@
     },
     "actions": {
       "close": "Fermer"
+    },
+    "cookie_consent": {
+      "title": "Gestion des cookies",
+      "message": "Ce site utilise des cookies et vous donne le contrôle sur ceux que vous souhaitez activer.",
+      "accept": "Tout accepter"
     }
   },
   "pages": {
     "home": {
       "seo_title": "Accueil",
-      "title": "Bienvenue sur SoLE SA",
+      "title": "Bienvenue sur ABENES SARL",
       "subtitle": "Votre tableau de bord"
     }
   },

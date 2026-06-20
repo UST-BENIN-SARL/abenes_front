@@ -7,10 +7,10 @@ const route = useRoute()
 const { currentLocale } = useI18nLocale()
 
 const props = defineProps({
-  title: { type: String, default: 'SoLE SA' },
+  title: { type: String, default: 'ABENES SARL' },
   description: {
     type: String,
-    default: 'Réserver facilement vos espaces pour tous vos évènements.'
+    default: 'Importation, distribution et maintenance d\'équipements médicaux et de laboratoire en Afrique de l\'Ouest depuis 2016.'
   },
   image: { type: String, default: '/images/logos/favicon.svg' },
   url: { type: String, default: '' }
@@ -26,23 +26,23 @@ useSeoMeta({
   ogImage: props.image,
   ogUrl: computedUrl.value,
   ogType: 'website',
-  ogSiteName: 'SoLE SA',
+  ogSiteName: 'ABENES SARL',
   ogLocale: currentLocale.value.replace('-', '_'),
   twitterCard: 'summary_large_image',
   twitterTitle: props.title,
   twitterDescription: props.description,
   twitterImage: props.image,
-  author: 'SoLE SA',
+  author: 'ABENES SARL',
   robots: 'index, follow'
 })
 
 useHead({
-  title: `${props.title} - SoLE`,
+  title: `${props.title} - ABENES SARL`,
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
     { name: 'format-detection', content: 'telephone=no' },
-    { name: 'theme-color', content: '#10354C' },
-    { name: 'application-name', content: 'SoLE SA' },
+    { name: 'theme-color', content: '#042c53' },
+    { name: 'application-name', content: 'ABENES SARL' },
     { name: 'generator', content: 'Nuxt 3' },
     { name: 'referrer', content: 'strict-origin-when-cross-origin' },
     { name: 'color-scheme', content: 'light dark' },

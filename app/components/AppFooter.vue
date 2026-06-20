@@ -1,6 +1,6 @@
 <template>
   <footer class="bg-(--primary-darkest) px-4 py-6 text-center text-sm text-white">
-    <p>&copy; {{ currentYear }} SoLE SA. {{ $t('common.footer.rights') }}</p>
+    <p>&copy; {{ currentYear }} ABENES SARL. {{ $t('common.footer.rights') }}</p>
   </footer>
 </template>
 

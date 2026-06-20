@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       meta: [
-        { name: 'description', content: 'SoLE SA' },
+        { name: 'description', content: 'ABENES SARL' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ]
     }
