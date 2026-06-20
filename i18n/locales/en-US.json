@@ -17,6 +17,9 @@
       "title": "Your privacy is our priority.",
       "bar_text": "We use cookies to ensure the site works properly and to improve your experience. Click \"Accept\" or \"Decline\", or fine-tune your choice via \"Manage cookies\".",
       "modal_text": "You can accept or decline each cookie below, then save your choice. Cookies required for the site to function remain always active."
+    },
+    "seo": {
+      "default_description": "Import, distribution and maintenance of medical and laboratory equipment in West Africa since 2016."
     }
   },
   "pages": {

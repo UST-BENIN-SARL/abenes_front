@@ -5,24 +5,23 @@
 <script setup lang="ts">
 const route = useRoute()
 const { currentLocale } = useI18nLocale()
+const { t } = useI18n()
 
 const props = defineProps({
   title: { type: String, default: 'ABENES SARL' },
-  description: {
-    type: String,
-    default: 'Importation, distribution et maintenance d\'équipements médicaux et de laboratoire en Afrique de l\'Ouest depuis 2016.'
-  },
-  image: { type: String, default: '/images/logos/favicon.svg' },
+  description: { type: String, default: '' },
+  image: { type: String, default: '/images/logo-free.png' },
   url: { type: String, default: '' }
 })
 
+const description = computed(() => props.description || t('common.seo.default_description'))
 const computedUrl = computed(() => props.url || useSiteUrl() + `${route.path}`)
 
 useSeoMeta({
   title: props.title,
-  description: props.description,
+  description: description.value,
   ogTitle: props.title,
-  ogDescription: props.description,
+  ogDescription: description.value,
   ogImage: props.image,
   ogUrl: computedUrl.value,
   ogType: 'website',
@@ -30,7 +29,7 @@ useSeoMeta({
   ogLocale: currentLocale.value.replace('-', '_'),
   twitterCard: 'summary_large_image',
   twitterTitle: props.title,
-  twitterDescription: props.description,
+  twitterDescription: description.value,
   twitterImage: props.image,
   author: 'ABENES SARL',
   robots: 'index, follow'
