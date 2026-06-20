@@ -40,11 +40,59 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     'nuxt-swiper',
     '@nuxtjs/leaflet',
-    'shadcn-nuxt'
+    'shadcn-nuxt',
+    '@dargmuesli/nuxt-cookie-control'
   ],
   shadcn: {
     prefix: 'Ui',
     componentDir: '@/components/ui'
+  },
+  cookieControl: {
+    barPosition: 'center',
+    closeModalOnClickOutside: true,
+    isModalForced: false,
+    isAcceptNecessaryButtonEnabled: true,
+    isControlButtonEnabled: true,
+    declineAllAcceptsNecessary: true,
+    locales: ['fr', 'en'],
+    isCssEnabled: false,
+    localeTexts: {
+      fr: {
+        decline: 'Refuser',
+        save: 'Sauvegarder',
+        manageCookies: 'Paramétrer les cookies'
+      },
+      en: {
+        decline: 'Decline',
+        save: 'Save',
+        manageCookies: 'Manage cookie settings'
+      }
+    },
+    cookies: {
+      necessary: [
+        {
+          id: 'necessary',
+          name: { fr: 'Cookies nécessaires', en: 'Necessary cookies' },
+          description: {
+            fr: 'Indispensables au fonctionnement du site (langue, sécurité).',
+            en: 'Required for the site to function (language, security).'
+          }
+        }
+      ],
+      optional: [
+        {
+          id: 'recaptcha',
+          name: { fr: 'reCAPTCHA', en: 'reCAPTCHA' },
+          description: {
+            fr: 'Protège les formulaires contre les robots (Google).',
+            en: 'Protects forms against bots (Google).'
+          },
+          isPreselected: false,
+          links: { 'https://policies.google.com/privacy': 'Google Privacy Policy' },
+          targetCookieIds: ['_GRECAPTCHA']
+        }
+      ]
+    }
   },
   runtimeConfig: {
     public: {

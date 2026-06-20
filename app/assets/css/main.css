@@ -23,26 +23,23 @@
    ============================================= */
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Nunito';
   font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+  src: url('../fonts/Nunito/static/Nunito-Regular.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Poppins';
   font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+  src: url('../fonts/Poppins/static/Poppins-Regular.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Open-Sans';
   font-style: normal;
-  font-weight: 800;
-  src: url('../fonts/Montserrat/static/Montserrat-ExtraBold.ttf') format('truetype');
+  src: url('../fonts/Open_Sans/static/OpenSans-Regular.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -98,25 +95,21 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    position: relative;
+    z-index: 0;
   }
 
   body {
     font-family:
-      'Montserrat',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      Roboto,
-      'Helvetica Neue',
+      'Open-Sans',
+      'Nunito',
+      'Poppins',
       Arial,
+      system-ui,
       sans-serif;
-    font-size: 14px;
-    background-color: var(--white);
-    color: var(--black);
+    font-size: 1rem;
     overflow-x: hidden;
-    @apply bg-background text-foreground;
-    @apply font-sans;
+    background-color: white;
   }
 
   a {
@@ -137,9 +130,6 @@
   img {
     max-width: 100%;
     display: block;
-  }
-  * {
-    @apply border-border outline-ring/50;
   }
 }
 
@@ -168,7 +158,7 @@
 
   .markdown-content :is(h1, h2, h3, h4, h5),
   .markdown-content :is(h1, h2, h3, h4, h5) :is(strong, a) {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 800;
     color: var(--primary-dark);
     text-decoration: none;
@@ -369,6 +359,368 @@
     .markdown-content ul li                { line-height: 1.5rem; }
     .markdown-content ol li                { line-height: 2rem; }
   }
+
+  /* --- Cookie consent (nuxt-cookie-control) --- */
+  /* isCssEnabled is set to false in nuxt.config.ts: this is the only stylesheet
+     driving the module, mimicking a typical FR cookie-consent dialog
+     (green accept / red decline / dark "decline all"). */
+
+  .cookieControl {
+    position: relative;
+    z-index: 100000;
+  }
+
+  .cookieControl button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  /* Initial ask (centered bar) */
+
+  .cookieControl__Bar {
+    position: fixed;
+  }
+
+  .cookieControl__Bar--center {
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cookieControl__Bar--center::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgb(0 0 0 / 55%);
+  }
+
+  .cookieControl__BarContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 90vw;
+    max-width: 560px;
+    padding: 48px 32px;
+    background: var(--white);
+  }
+
+  .cookieControl__GdprBadge {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    padding: 12px 0;
+  }
+
+  .cookieControl__CookieEmoji {
+    position: absolute;
+    font-size: 56px;
+    line-height: 1;
+  }
+
+  .cookieControl__CookieEmoji--back {
+    transform: translate(14px, 8px) rotate(10deg);
+    opacity: 0.85;
+  }
+
+  .cookieControl__CookieEmoji--front {
+    transform: translate(-10px, -6px) rotate(-8deg);
+    mask-image: radial-gradient(circle 11px at 80% 22%, transparent 99%, black 100%);
+    -webkit-mask-image: radial-gradient(circle 11px at 80% 22%, transparent 99%, black 100%);
+  }
+
+  .cookieControl__Bar h2 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-title);
+  }
+
+  .cookieControl__Bar p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+
+  .cookieControl__BarButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .cookieControl__BarButtons button {
+    flex: 1 1 auto;
+    border: none;
+    border-radius: 6px;
+    padding: 11px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    transition: background-color 0.2s;
+  }
+
+  .cookieControl__BarButtons button:nth-child(1) { background: var(--success-variant); }
+  .cookieControl__BarButtons button:nth-child(1):hover { background: #1a4d1a; }
+  .cookieControl__BarButtons button:nth-child(2) { background: var(--danger); }
+  .cookieControl__BarButtons button:nth-child(2):hover { background: #a52f22; }
+
+  .cookieControl__BarButtons button:nth-child(3) {
+    flex: 1 1 100%;
+    background: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    text-decoration: underline;
+    padding: 4px;
+  }
+
+  .cookieControl__BarButtons button:nth-child(3):hover { color: var(--primary); }
+
+  /* Floating control button (reopen preferences) */
+
+  .cookieControl__ControlButton {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 2px 10px rgb(0 0 0 / 30%);
+  }
+
+  .cookieControl__ControlButton:hover { background: var(--primary-dark); }
+  .cookieControl__ControlButton svg { width: 20px; height: 20px; }
+
+  /* Detailed settings modal */
+
+  .cookieControl__Modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    font-size: 0;
+    text-align: center;
+  }
+
+  .cookieControl__Modal::before {
+    content: '';
+    display: inline-block;
+    min-height: 100vh;
+    vertical-align: middle;
+  }
+
+  .cookieControl__Modal::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgb(0 0 0 / 60%);
+  }
+
+  .cookieControl__ModalContent {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    text-align: left;
+    vertical-align: middle;
+    background: var(--white);
+    border-radius: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-alpha) var(--white);
+  }
+
+  .cookieControl__ModalContent::-webkit-scrollbar {
+    width: 6px;
+    background: var(--white);
+  }
+
+  .cookieControl__ModalContent::-webkit-scrollbar-track {
+    background: var(--white);
+  }
+
+  .cookieControl__ModalContent::-webkit-scrollbar-thumb {
+    background: var(--gray-alpha);
+    border-radius: 4px;
+  }
+
+  .cookieControl__ModalContentInner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+  }
+
+  .cookieControl__ModalContentInner > h2:first-of-type {
+    margin: 0;
+    padding-right: 32px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-title);
+  }
+
+  .cookieControl__ModalContentInner > p:first-of-type {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .cookieControl__ModalContentInner > h2:not(:first-of-type) {
+    margin: 8px 0 0;
+    padding: 10px 14px;
+    border-radius: 4px;
+    background: var(--text-secondary);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .cookieControl__ModalClose {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: none;
+    color: var(--text-secondary);
+    font-size: 0;
+  }
+
+  .cookieControl__ModalClose::before {
+    content: '\2715';
+    font-size: 18px;
+  }
+
+  .cookieControl__ModalClose:hover { color: var(--text-title); }
+
+  .cookieControl__ModalContentInner ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cookieControl__ModalInputWrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+
+  .cookieControl__ModalCookieName {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: none;
+    color: var(--text-title);
+  }
+
+  .cookieControl__ModalCookieName span {
+    display: block;
+    margin-top: 2px;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: none;
+    color: var(--text-secondary);
+  }
+
+  .cookieControl__ModalCookieName a {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+
+  .cookieControl__ModalContentInner input { display: none; }
+
+  .cookieControl__ModalContentInner input + button {
+    flex-shrink: 0;
+    min-width: 116px;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 4px;
+    background: var(--danger);
+    color: var(--white);
+    font-size: 0;
+    font-weight: 600;
+  }
+
+  .cookieControl__ModalContentInner input + button::before { font-size: 13px; }
+  .cookieControl__ModalContentInner input:checked + button { background: var(--success-variant); }
+
+  .cookieControl__ModalContentInner input:disabled + button {
+    background: var(--border);
+    color: var(--text-secondary);
+  }
+
+  :lang(fr) .cookieControl__ModalContentInner input + button::before { content: '✗ Refuser'; }
+  :lang(fr) .cookieControl__ModalContentInner input:checked + button::before { content: '✓ Accepter'; }
+  :lang(fr) .cookieControl__ModalContentInner input:checked:disabled + button::before { content: '✓ Toujours actif'; }
+  :lang(en) .cookieControl__ModalContentInner input + button::before { content: '✗ Decline'; }
+  :lang(en) .cookieControl__ModalContentInner input:checked + button::before { content: '✓ Accept'; }
+  :lang(en) .cookieControl__ModalContentInner input:checked:disabled + button::before { content: '✓ Always on'; }
+
+  .cookieControl__ModalButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .cookieControl__ModalButtons button {
+    flex: 1 1 140px;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .cookieControl__ModalButtons button:nth-child(1) { background: var(--success-variant); color: var(--white); }
+  .cookieControl__ModalButtons button:nth-child(1):hover { background: #1a4d1a; }
+  .cookieControl__ModalButtons button:nth-child(2) { background: var(--background-gray); color: #1a1a1a; }
+  .cookieControl__ModalButtons button:nth-child(2):hover { background: #cfcfcf; }
+  .cookieControl__ModalButtons button:nth-child(3) { background: #1a1a1a; color: var(--white); }
+  .cookieControl__ModalButtons button:nth-child(3):hover { background: #000; }
+
+  .cookieControl__ModalUnsaved {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 10px;
+    border-radius: 4px;
+    background: var(--white);
+    color: var(--danger);
+    font-size: 12px;
+  }
+
+  @media (max-width: 480px) {
+    .cookieControl__BarContainer { padding: 24px 20px; }
+    .cookieControl__ModalContentInner { padding: 24px 20px; }
+
+    .cookieControl__ModalInputWrapper {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+  }
 }
 
 /* =============================================
@@ -388,79 +740,4 @@
 
 @layer utilities {
   /* à compléter si besoin */
-}
-
-@theme inline {
-  --font-sans: 'Montserrat', sans-serif;
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--shadcn-border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--shadcn-secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--shadcn-primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --color-foreground: var(--foreground);
-  --color-background: var(--shadcn-background);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
-
-:root {
-  --shadcn-background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --shadcn-primary: var(--primary);
-  --primary-foreground: var(--white);
-  --shadcn-secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --shadcn-border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: var(--primary);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 }

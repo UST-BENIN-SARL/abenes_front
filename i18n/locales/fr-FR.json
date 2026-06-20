@@ -14,9 +14,9 @@
       "close": "Fermer"
     },
     "cookie_consent": {
-      "title": "Gestion des cookies",
-      "message": "Ce site utilise des cookies et vous donne le contrôle sur ceux que vous souhaitez activer.",
-      "accept": "Tout accepter"
+      "title": "Le respect de votre vie privée est notre priorité.",
+      "bar_text": "Nous utilisons des cookies pour assurer le bon fonctionnement du site et améliorer votre expérience. Cliquez sur « Accepter » ou « Refuser », ou affinez votre choix via « Gérer les cookies ».",
+      "modal_text": "Vous pouvez accepter ou refuser chaque cookie ci-dessous, puis enregistrer votre choix. Les cookies nécessaires au fonctionnement du site restent toujours actifs."
     }
   },
   "pages": {

@@ -14,6 +14,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@dargmuesli/nuxt-cookie-control": "^9.1.30",
     "@lucide/vue": "^1.21.0",
     "@nuxt/content": "^3.14.0",
     "@nuxt/eslint": "^1.16.0",
