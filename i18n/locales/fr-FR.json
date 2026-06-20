@@ -11,13 +11,7 @@
       "rights": "Tous droits réservés."
     },
     "actions": {
-      "close": "Fermer",
-      "logout": "Se déconnecter"
-    },
-    "user": {
-      "login_success": "Connexion réussie.",
-      "logout_success": "Vous avez été déconnecté.",
-      "logout_error": "Une erreur est survenue lors de la déconnexion."
+      "close": "Fermer"
     }
   },
   "pages": {
@@ -25,16 +19,6 @@
       "seo_title": "Accueil",
       "title": "Bienvenue sur SoLE SA",
       "subtitle": "Votre tableau de bord"
-    },
-    "login": {
-      "seo_title": "Connexion",
-      "title": "Connexion",
-      "subtitle": "Entrez vos identifiants pour accéder à votre compte.",
-      "email": "Adresse email",
-      "password": "Mot de passe",
-      "submit": "Se connecter",
-      "loading": "Connexion en cours...",
-      "forgot_password": "Mot de passe oublié ?"
     }
   },
   "validation": {

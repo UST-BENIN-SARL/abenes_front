@@ -11,13 +11,7 @@
       "rights": "All rights reserved."
     },
     "actions": {
-      "close": "Close",
-      "logout": "Log out"
-    },
-    "user": {
-      "login_success": "Login successful.",
-      "logout_success": "You have been logged out.",
-      "logout_error": "An error occurred while logging out."
+      "close": "Close"
     }
   },
   "pages": {
@@ -25,16 +19,6 @@
       "seo_title": "Home",
       "title": "Welcome to SoLE SA",
       "subtitle": "Your dashboard"
-    },
-    "login": {
-      "seo_title": "Login",
-      "title": "Login",
-      "subtitle": "Enter your credentials to access your account.",
-      "email": "Email address",
-      "password": "Password",
-      "submit": "Log in",
-      "loading": "Logging in...",
-      "forgot_password": "Forgot password?"
     }
   },
   "validation": {

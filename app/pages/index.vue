@@ -6,7 +6,3 @@
     <p class="mt-1 text-sm text-(--text-secondary)">{{ $t('pages.home.subtitle') }}</p>
   </div>
 </template>
-
-<script setup lang="ts">
-definePageMeta({ middleware: 'auth' })
-</script>

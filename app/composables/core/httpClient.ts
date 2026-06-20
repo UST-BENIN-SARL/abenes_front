@@ -5,7 +5,6 @@ type HttpClientConfig = {
   BASE_URL?: string
   headers?: {
     'Content-Type'?: string
-    Authorization?: string
     'Access-Control-Allow-Origin'?: string
     'X-App-Language'?: string
     Accept?: string
@@ -21,45 +20,19 @@ export type HttpClientResult<T> = {
   pending: Ref<boolean>
 }
 
-// Endpoints that must never trigger a refresh-and-retry (avoids infinite loops)
-const AUTH_ENDPOINTS: string[] = [
-  Endpoints.auth.login,
-  Endpoints.auth.logout,
-  Endpoints.auth.refresh
-]
-
 export const useHttpClient = (config: HttpClientConfig = { BASE_URL: useBaseUrl() + '/api/' }) => {
-  const { accessToken } = useAuth()
   const { t } = useI18n()
-
-  const buildHeaders = (): Record<string, string> => {
-    if (config.headers) return { ...config.headers }
-
-    const baseHeaders: Record<string, string> = {}
-    if (accessToken.value) {
-      baseHeaders['Authorization'] = 'Bearer ' + accessToken.value
-    }
-    return baseHeaders
-  }
 
   async function performFetch<T>(url: string, method: HttpMethod, body?: HttpBody): Promise<T> {
     const headers: Record<string, string> = {
-      ...buildHeaders(),
+      ...config.headers,
       'X-App-Language': getCurrentLocale().value
-    }
-
-    if (import.meta.server) {
-      const requestHeaders = useRequestHeaders(['cookie'])
-      if (requestHeaders.cookie) {
-        headers.cookie = requestHeaders.cookie
-      }
     }
 
     return (await $fetch<T>(url, {
       method,
       baseURL: config.BASE_URL,
       body,
-      credentials: 'include',
       headers
     })) as T
   }
@@ -76,26 +49,7 @@ export const useHttpClient = (config: HttpClientConfig = { BASE_URL: useBaseUrl(
     try {
       data.value = await performFetch<T>(url, method, body)
     } catch (errorCaught: unknown) {
-      const fetchError = errorCaught as { status?: number; data?: { message?: string | string[] } }
-
-      if (fetchError.status === 401 && !AUTH_ENDPOINTS.includes(url)) {
-        const { refresh } = useAuthSession()
-        const refreshed = await refresh()
-
-        if (refreshed) {
-          try {
-            data.value = await performFetch<T>(url, method, body)
-            return { data, error, pending } as HttpClientResult<T>
-          } catch (retryErrorCaught: unknown) {
-            error.value = toErrorPayload(retryErrorCaught, t)
-            useCustomToast(error.value.message, 'error').temporary()
-            pending.value = false
-            return { data, error, pending } as HttpClientResult<T>
-          }
-        }
-      }
-
-      error.value = toErrorPayload(fetchError, t)
+      error.value = toErrorPayload(errorCaught, t)
       useCustomToast(error.value.message, 'error').temporary()
     } finally {
       pending.value = false
