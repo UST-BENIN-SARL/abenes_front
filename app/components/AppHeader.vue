@@ -11,7 +11,7 @@
         <li v-for="item in navItems" :key="item.to">
           <NuxtLink
             :to="item.to"
-            class="relative pb-2.5 text-[15px] text-(--text-dark) transition-colors after:absolute after:bottom-0 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:scale-0 after:rounded-full after:bg-(--primary) after:opacity-0 after:transition-all hover:text-(--primary) [&.router-link-active]:text-(--primary) [&.router-link-active]:after:scale-100 [&.router-link-active]:after:opacity-100"
+            class="relative pb-2.5 font-semibold text-[16px] text-(--text-dark) transition-colors after:absolute after:bottom-0 after:left-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:scale-0 after:rounded-full after:bg-(--primary) after:opacity-0 after:transition-all hover:text-(--primary) [&.router-link-active]:text-(--primary) [&.router-link-active]:after:scale-100 [&.router-link-active]:after:opacity-100"
           >
             {{ item.label }}
           </NuxtLink>
@@ -45,7 +45,6 @@ const navItems = [
   { to: "/about", label: "Qui sommes-nous ?" },
   { to: "/services", label: "Nos services" },
   { to: "/products", label: "Nos produits" },
-  { to: "/achievements", label: "Réalisations" },
   { to: "/news", label: "Actualités" },
   { to: "/jobs", label: "Carrières" },
   { to: "/contact", label: "Contact" },
