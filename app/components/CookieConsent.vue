@@ -14,7 +14,6 @@
         <p>{{ $t('common.cookie_consent.modal_text') }}</p>
       </template>
     </CookieControl>
-    <CookieIframe />
   </div>
 </template>
 

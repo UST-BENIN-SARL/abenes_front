@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="flex min-h-screen flex-col">
     <div ref="fixedHeaderRef" class="fixed inset-x-0 top-0 z-50">
       <AppAlert />
       <AppHeader />
     </div>
 
-    <main :style="{ paddingTop: `${height}px` }">
+    <main class="flex-1" :style="{ paddingTop: `${height}px` }">
       <slot />
     </main>
 
