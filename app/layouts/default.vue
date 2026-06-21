@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppAlert />
     <AppHeader />
 
     <main>
