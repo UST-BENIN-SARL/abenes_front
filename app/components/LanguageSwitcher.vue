@@ -2,7 +2,7 @@
   <div ref="rootEl" class="relative inline-flex">
     <button
       type="button"
-      class="inline-flex items-center gap-1.5 text-sm font-semibold text-(--primary-darkest)"
+      class="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-semibold text-(--primary-darkest) transition-colors hover:bg-(--background-gray)"
       :aria-expanded="isOpen"
       aria-haspopup="menu"
       @click="toggleMenu"

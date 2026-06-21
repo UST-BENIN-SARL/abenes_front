@@ -26,7 +26,7 @@
         <button
           type="button"
           aria-label="Rechercher"
-          class="text-(--text-dark) hover:text-(--primary)"
+          class="rounded-full p-2 text-(--text-dark) transition-colors hover:bg-(--background-gray) hover:text-(--primary)"
         >
           <Search class="size-6" />
         </button>
