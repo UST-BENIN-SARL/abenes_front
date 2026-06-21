@@ -1,0 +1,21 @@
+{
+  "name": "ABENES SARL",
+  "short_name": "ABENES",
+  "description": "Importation, distribution et maintenance d'équipements médicaux et de laboratoire en Afrique de l'Ouest depuis 2016.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#042c53",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -43,7 +43,7 @@ export interface AlertItem {
   message: string;
 }
 
-const ROTATION_INTERVAL_MS = 10000;
+const ROTATION_INTERVAL_MS = 15000;
 
 const alerts: AlertItem[] = [
   {
