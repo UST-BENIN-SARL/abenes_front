@@ -5,7 +5,7 @@
         Ils nous font confiance
       </h2> -->
 
-      <div class="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <div class="overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <div class="animate-marquee flex w-max items-center gap-16">
           <NuxtImg
             v-for="(partner, index) in [...partners, ...partners]"
@@ -45,7 +45,7 @@ const partners = [
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
 .animate-marquee:hover {
