@@ -1,6 +1,6 @@
 <template>
   <header class="bg-white text-black">
-    <div class="container mx-auto flex items-center justify-between px-3 py-4">
+    <div class="container mx-auto flex items-center justify-between px-3 py-3">
       <NuxtLink to="/">
         <NuxtImg src="/images/logo.png" alt="ABENES SARL" class="h-16 w-auto" />
       </NuxtLink>

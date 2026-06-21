@@ -23,7 +23,13 @@
     "home": {
       "seo_title": "Accueil",
       "title": "Bienvenue sur ABENES SARL",
-      "subtitle": "Votre tableau de bord"
+      "subtitle": "Votre tableau de bord",
+      "hero": {
+        "slide1_title": "Votre partenaire en équipements médicaux",
+        "slide1_subtitle": "Diagnostic, surveillance de la glycémie et solutions de laboratoire fiables, au service des professionnels de santé.",
+        "slide2_title": "Des solutions complètes pour vos laboratoires",
+        "slide2_subtitle": "Construction, équipement et fourniture de réactifs pour hôpitaux et laboratoires en Afrique de l'Ouest."
+      }
     }
   },
   "validation": {

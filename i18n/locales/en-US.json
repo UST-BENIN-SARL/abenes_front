@@ -23,7 +23,13 @@
     "home": {
       "seo_title": "Home",
       "title": "Welcome to ABENES SARL",
-      "subtitle": "Your dashboard"
+      "subtitle": "Your dashboard",
+      "hero": {
+        "slide1_title": "Your partner for medical equipment",
+        "slide1_subtitle": "Diagnostics, blood glucose monitoring and reliable laboratory solutions for healthcare professionals.",
+        "slide2_title": "Complete solutions for your laboratories",
+        "slide2_subtitle": "Construction, equipment and reagent supply for hospitals and laboratories across West Africa."
+      }
     }
   },
   "validation": {
