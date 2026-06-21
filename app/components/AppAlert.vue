@@ -22,7 +22,7 @@
         <UiButton
           variant="ghost"
           size="icon-xs"
-          class="shrink-0 text-current hover:text-current"
+          class="shrink-0 text-current hover:text-black/80"
           :aria-label="$t('common.actions.close')"
           @click="dismiss(currentAlert.id)"
         >

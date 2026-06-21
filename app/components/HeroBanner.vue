@@ -1,5 +1,5 @@
 <template>
-  <section class="relative h-[75vh] min-h-[520px] w-full overflow-hidden sm:h-[88vh]">
+  <section class="relative h-[72vh] min-h-[520px] w-full overflow-hidden sm:h-[84vh]">
     <div
       v-for="(slide, index) in slides"
       :key="slide.id"
