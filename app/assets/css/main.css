@@ -482,24 +482,6 @@
 
   .cookieControl__BarButtons button:nth-child(3):hover { color: var(--primary); }
 
-  /* Floating control button (reopen preferences) */
-
-  .cookieControl__ControlButton {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 44px;
-    height: 44px;
-    border: none;
-    border-radius: 50%;
-    background: var(--primary);
-    color: var(--white);
-    box-shadow: 0 2px 10px rgb(0 0 0 / 30%);
-  }
-
-  .cookieControl__ControlButton:hover { background: var(--primary-dark); }
-  .cookieControl__ControlButton svg { width: 20px; height: 20px; }
-
   /* Detailed settings modal */
 
   .cookieControl__Modal {

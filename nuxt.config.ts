@@ -52,7 +52,7 @@ export default defineNuxtConfig({
     closeModalOnClickOutside: true,
     isModalForced: false,
     isAcceptNecessaryButtonEnabled: true,
-    isControlButtonEnabled: true,
+    isControlButtonEnabled: false,
     declineAllAcceptsNecessary: true,
     locales: ['fr', 'en'],
     isCssEnabled: false,
