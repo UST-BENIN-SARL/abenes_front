@@ -94,6 +94,7 @@ const navItems = [
   { to: "/about", label: "Qui sommes-nous ?" },
   { to: "/services", label: "Nos services" },
   { to: "/products", label: "Nos produits" },
+  { to: "/partners", label: "Partenaires" },
   { to: "/contact", label: "Contact" },
 ];
 
