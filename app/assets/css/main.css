@@ -381,14 +381,14 @@
     position: fixed;
   }
 
-  .cookieControl__Bar--center {
+  .cookieControl__Bar--bottom-full {
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .cookieControl__Bar--center::before {
+  .cookieControl__Bar--bottom-full::before {
     content: '';
     position: fixed;
     inset: 0;

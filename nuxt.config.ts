@@ -48,7 +48,7 @@ export default defineNuxtConfig({
     componentDir: '@/components/ui'
   },
   cookieControl: {
-    barPosition: 'center',
+    barPosition: 'bottom-full',
     closeModalOnClickOutside: true,
     isModalForced: false,
     isAcceptNecessaryButtonEnabled: true,
