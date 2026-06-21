@@ -22,15 +22,15 @@
         <div class="flex items-center gap-3">
           <LanguageSwitcher />
           <span class="h-6 w-px bg-gray-400" aria-hidden="true" />
-          <button
-            type="button"
+          <UiButton
+            variant="ghost"
+            size="icon"
             aria-label="Rechercher"
             :aria-expanded="isSearchOpen"
-            class="rounded-full p-2 text-(--text-dark) transition-colors hover:bg-(--background-gray) hover:text-(--primary)"
             @click="isSearchOpen = !isSearchOpen"
           >
-            <Search class="size-6" />
-          </button>
+            <Search class="size-5" />
+          </UiButton>
         </div>
         <UiButton as-child size="lg">
           <NuxtLink to="/contact" class="font-semibold px-2">Demander un devis</NuxtLink>
