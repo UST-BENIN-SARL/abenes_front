@@ -2,31 +2,26 @@
   <div ref="rootEl" class="relative inline-flex">
     <button
       type="button"
-      class="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/15"
+      class="inline-flex items-center gap-1.5 text-sm font-semibold text-(--primary-darkest)"
       :aria-expanded="isOpen"
       aria-haspopup="menu"
       @click="toggleMenu"
     >
-      <span class="text-base leading-none">{{ currentOption.flag }}</span>
-      <span class="hidden sm:inline">{{ currentOption.name }}</span>
-      <Icon
-        name="mdi:chevron-down"
-        class="text-white/80 transition-transform duration-200"
-        :class="{ 'rotate-180': isOpen }"
-      />
+      <Globe class="size-5" />
+      <span>{{ currentLocale.slice(0, 2).toUpperCase() }}</span>
     </button>
 
     <div
       v-if="isOpen"
-      class="absolute right-0 top-full z-50 mt-2 min-w-44 overflow-hidden rounded-lg border border-white/10 bg-(--success-variant) shadow-lg"
+      class="absolute right-0 top-full z-50 mt-2 min-w-34 overflow-hidden rounded-md border border-(--border) bg-white shadow-lg"
       role="menu"
     >
       <button
         v-for="localeItem in availableLocales"
         :key="localeItem.code"
         type="button"
-        class="flex w-full items-center gap-3 px-4 py-2 text-left text-sm text-white transition hover:bg-white/10"
-        :class="{ 'bg-white/10': localeItem.code === currentLocale }"
+        class="flex w-full items-center gap-3 px-4 py-2 text-left text-sm text-(--text-dark) transition hover:bg-(--background-gray)"
+        :class="{ 'bg-(--background-gray)': localeItem.code === currentLocale }"
         role="menuitem"
         @click="selectLocale(localeItem.code)"
       >
@@ -38,16 +33,11 @@
 </template>
 
 <script setup lang="ts">
+import { Globe } from '@lucide/vue'
+
 const rootEl = ref<HTMLElement | null>(null)
 const isOpen = ref(false)
 const { currentLocale, setLocale, availableLocales } = useI18nLocale()
-
-const currentOption = computed(() => {
-  return (
-    availableLocales.value.find((locale) => locale.code === currentLocale.value) ??
-    availableLocales.value[0]!
-  )
-})
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value

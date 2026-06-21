@@ -1,8 +1,8 @@
 <template>
-  <div class="flex min-h-screen flex-col">
+  <div>
     <AppHeader />
 
-    <main class="flex-1">
+    <main>
       <slot />
     </main>
 

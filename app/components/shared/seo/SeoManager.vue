@@ -10,7 +10,7 @@ const { t } = useI18n()
 const props = defineProps({
   title: { type: String, default: 'ABENES SARL' },
   description: { type: String, default: '' },
-  image: { type: String, default: '/images/logo-free.png' },
+  image: { type: String, default: '/images/logo.png' },
   url: { type: String, default: '' }
 })
 
