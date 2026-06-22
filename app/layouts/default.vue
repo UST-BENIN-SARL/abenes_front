@@ -6,6 +6,13 @@
     </div>
 
     <main class="flex-1" :style="{ paddingTop: `${height}px` }">
+      <PageBanner
+        v-if="showPageBanner"
+        :title="pageBannerTitle"
+        :subtitle="pageBannerSubtitle"
+        :breadcrumbs="pageBannerBreadcrumbs"
+      />
+
       <slot />
     </main>
 
@@ -16,4 +23,11 @@
 <script setup lang="ts">
 const fixedHeaderRef = ref<HTMLElement | null>(null)
 const { height } = useElementSize(fixedHeaderRef)
+
+const {
+  show: showPageBanner,
+  title: pageBannerTitle,
+  subtitle: pageBannerSubtitle,
+  breadcrumbs: pageBannerBreadcrumbs
+} = usePageBanner()
 </script>

@@ -10,6 +10,9 @@
     "actions": {
       "close": "Fermer"
     },
+    "breadcrumb": {
+      "home": "Accueil"
+    },
     "cookie_consent": {
       "title": "Le respect de votre vie privée est notre priorité.",
       "bar_text": "Nous utilisons des cookies pour assurer le bon fonctionnement du site et améliorer votre expérience. Cliquez sur « Accepter » ou « Refuser », ou affinez votre choix via « Gérer les cookies ».",
@@ -30,6 +33,49 @@
         "slide2_title": "Des solutions complètes pour vos laboratoires",
         "slide2_subtitle": "Construction, équipement et fourniture de réactifs pour hôpitaux et laboratoires en Afrique de l'Ouest."
       }
+    },
+    "about": {
+      "seo_title": "Qui sommes-nous ?",
+      "title": "Qui sommes-nous ?",
+      "subtitle": "Découvrez l'histoire, les missions et les valeurs d'ABENES SARL."
+    },
+    "contact": {
+      "seo_title": "Contact",
+      "title": "Contactez-nous",
+      "subtitle": "Une question, un projet ? Notre équipe vous répond rapidement."
+    },
+    "jobs": {
+      "seo_title": "Carrières",
+      "title": "Carrières",
+      "subtitle": "Rejoignez une équipe engagée au service de la santé en Afrique de l'Ouest."
+    },
+    "products": {
+      "seo_title": "Nos produits",
+      "title": "Nos produits",
+      "subtitle": "Équipements médicaux et de laboratoire sélectionnés pour leur fiabilité."
+    },
+    "services": {
+      "seo_title": "Nos services",
+      "title": "Nos services",
+      "subtitle": "Installation, maintenance et accompagnement pour vos équipements."
+    },
+    "news": {
+      "seo_title": "Actualités",
+      "title": "Actualités",
+      "subtitle": "Suivez les dernières actualités d'ABENES SARL."
+    },
+    "partners": {
+      "seo_title": "Partenaires",
+      "title": "Nos partenaires",
+      "subtitle": "ABENES SARL collabore avec des fabricants reconnus pour proposer aux professionnels de santé des équipements médicaux et de laboratoire fiables."
+    },
+    "legal_notice": {
+      "seo_title": "Mentions légales",
+      "title": "Mentions légales"
+    },
+    "privacy_policy": {
+      "seo_title": "Politique de confidentialité",
+      "title": "Politique de confidentialité"
     }
   },
   "validation": {

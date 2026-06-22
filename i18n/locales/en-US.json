@@ -10,6 +10,9 @@
     "actions": {
       "close": "Close"
     },
+    "breadcrumb": {
+      "home": "Home"
+    },
     "cookie_consent": {
       "title": "Your privacy is our priority.",
       "bar_text": "We use cookies to ensure the site works properly and to improve your experience. Click \"Accept\" or \"Decline\", or fine-tune your choice via \"Manage cookies\".",
@@ -30,6 +33,49 @@
         "slide2_title": "Complete solutions for your laboratories",
         "slide2_subtitle": "Construction, equipment and reagent supply for hospitals and laboratories across West Africa."
       }
+    },
+    "about": {
+      "seo_title": "About us",
+      "title": "About us",
+      "subtitle": "Discover ABENES SARL's history, mission and values."
+    },
+    "contact": {
+      "seo_title": "Contact",
+      "title": "Contact us",
+      "subtitle": "A question, a project? Our team will get back to you quickly."
+    },
+    "jobs": {
+      "seo_title": "Careers",
+      "title": "Careers",
+      "subtitle": "Join a team committed to healthcare across West Africa."
+    },
+    "products": {
+      "seo_title": "Our products",
+      "title": "Our products",
+      "subtitle": "Medical and laboratory equipment selected for its reliability."
+    },
+    "services": {
+      "seo_title": "Our services",
+      "title": "Our services",
+      "subtitle": "Installation, maintenance and support for your equipment."
+    },
+    "news": {
+      "seo_title": "News",
+      "title": "News",
+      "subtitle": "Follow the latest news from ABENES SARL."
+    },
+    "partners": {
+      "seo_title": "Partners",
+      "title": "Our partners",
+      "subtitle": "ABENES SARL works with recognized manufacturers to offer healthcare professionals reliable medical and laboratory equipment."
+    },
+    "legal_notice": {
+      "seo_title": "Legal notice",
+      "title": "Legal notice"
+    },
+    "privacy_policy": {
+      "seo_title": "Privacy policy",
+      "title": "Privacy policy"
     }
   },
   "validation": {
