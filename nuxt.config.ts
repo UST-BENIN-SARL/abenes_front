@@ -34,7 +34,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
-    'nuxt-zod-i18n',
     '@nuxtjs/i18n',
     '@nuxt/eslint',
     '@nuxt/fonts',
@@ -100,14 +99,6 @@ export default defineNuxtConfig({
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL
     }
   },
-  zodI18n: {
-    localeCodesMapping: {
-      fr: 'fr-FR',
-      en: 'en-US',
-      'en-US': 'en-US',
-      'fr-FR': 'fr-FR'
-    }
-  },
   i18n: {
     defaultLocale: 'fr-FR',
     strategy: 'no_prefix',
@@ -130,7 +121,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ['vue3-recaptcha-v2', 'vue3-toastify', 'vue-tel-input']
+      include: ['vue3-recaptcha-v2', 'vue3-toastify', 'vue-tel-input', 'zod', 'leaflet']
     }
   }
 })
