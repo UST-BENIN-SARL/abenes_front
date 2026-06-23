@@ -98,6 +98,7 @@
                       mode="international"
                       default-country="BJ"
                       :auto-default-country="false"
+                      :input-options="{ placeholder: $t('pages.contact.form.phone_input_placeholder') }"
                       class="contact-tel-input"
                     />
                     <template #fallback>
@@ -109,59 +110,50 @@
                 </div>
               </div>
 
-              <div class="grid gap-2">
-                <UiLabel for="contact-subject">
-                  {{ $t("pages.contact.form.subject") }}
-                  <span class="text-(--danger)">*</span>
-                </UiLabel>
-                <UiSelect v-model="form.subject">
-                  <UiSelectTrigger
-                    id="contact-subject"
-                    class="w-full text-base data-[size=default]:h-11"
-                    :aria-invalid="hasError('subject')"
-                  >
-                    <UiSelectValue
-                      :placeholder="$t('pages.contact.form.subject_placeholder')"
-                    />
-                  </UiSelectTrigger>
-                  <UiSelectContent>
-                    <UiSelectItem
-                      v-for="subject in subjectOptions"
-                      :key="subject.value"
-                      :value="subject.value"
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div class="grid gap-2">
+                  <UiLabel for="contact-subject">
+                    {{ $t("pages.contact.form.subject") }}
+                    <span class="text-(--danger)">*</span>
+                  </UiLabel>
+                  <UiSelect v-model="form.subject">
+                    <UiSelectTrigger
+                      id="contact-subject"
+                      class="w-full text-base data-[size=default]:h-11"
+                      :aria-invalid="hasError('subject')"
                     >
-                      {{ subject.label }}
-                    </UiSelectItem>
-                  </UiSelectContent>
-                </UiSelect>
-                <p v-if="errors.subject" class="text-xs text-(--danger)">
-                  {{ errors.subject }}
-                </p>
-              </div>
+                      <UiSelectValue
+                        :placeholder="$t('pages.contact.form.subject_placeholder')"
+                      />
+                    </UiSelectTrigger>
+                    <UiSelectContent>
+                      <UiSelectItem
+                        v-for="subject in subjectOptions"
+                        :key="subject.value"
+                        :value="subject.value"
+                      >
+                        {{ subject.label }}
+                      </UiSelectItem>
+                    </UiSelectContent>
+                  </UiSelect>
+                  <p v-if="errors.subject" class="text-xs text-(--danger)">
+                    {{ errors.subject }}
+                  </p>
+                </div>
 
-              <div class="grid gap-2">
-                <UiLabel for="contact-product-category">
-                  {{ $t("pages.contact.form.product_category") }}
-                </UiLabel>
-                <UiSelect v-model="form.productCategory">
-                  <UiSelectTrigger
+                <div class="grid gap-2">
+                  <UiLabel for="contact-product-category">
+                    {{ $t("pages.contact.form.product_category") }}
+                  </UiLabel>
+                  <MultiSelectCombobox
                     id="contact-product-category"
-                    class="w-full text-base data-[size=default]:h-11"
-                  >
-                    <UiSelectValue
-                      :placeholder="$t('pages.contact.form.product_category_placeholder')"
-                    />
-                  </UiSelectTrigger>
-                  <UiSelectContent>
-                    <UiSelectItem
-                      v-for="category in productCategoryOptions"
-                      :key="category.value"
-                      :value="category.value"
-                    >
-                      {{ category.label }}
-                    </UiSelectItem>
-                  </UiSelectContent>
-                </UiSelect>
+                    v-model="form.productCategories"
+                    :options="productCategoryOptions"
+                    :placeholder="$t('pages.contact.form.product_category_placeholder')"
+                    :search-placeholder="$t('pages.contact.form.product_category_search_placeholder')"
+                    :empty-text="$t('pages.contact.form.product_category_empty')"
+                  />
+                </div>
               </div>
 
               <div class="grid gap-2">
@@ -172,8 +164,8 @@
                 <UiTextarea
                   id="contact-message"
                   v-model="form.message"
-                  rows="8"
-                  class="min-h-44 text-base md:text-base"
+                  rows="4"
+                  class="min-h-[5.5rem] text-base md:text-base"
                   :aria-invalid="hasError('message')"
                   :placeholder="$t('pages.contact.form.message_placeholder')"
                 />
@@ -394,7 +386,7 @@ const form = reactive({
   email: "",
   phone: "",
   subject: "",
-  productCategory: "",
+  productCategories: [] as string[],
   message: "",
 });
 
@@ -436,7 +428,7 @@ const resetForm = () => {
   form.email = "";
   form.phone = "";
   form.subject = "";
-  form.productCategory = "";
+  form.productCategories = [];
   form.message = "";
   clearFile();
 };
@@ -450,7 +442,13 @@ const onSubmit = async () => {
 
   try {
     const body = new FormData();
-    Object.entries(form).forEach(([key, value]) => body.append(key, String(value)));
+    Object.entries(form).forEach(([key, value]) => {
+      if (Array.isArray(value)) {
+        value.forEach((v) => body.append(key, v));
+      } else {
+        body.append(key, String(value));
+      }
+    });
     if (file.value) body.append("attachment", file.value);
 
     await $fetch("/api/contact", { method: "POST", body });

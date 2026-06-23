@@ -33,7 +33,7 @@ export function createContactSchema(messages: {
     email: z.string().min(1, messages.required).email(messages.email),
     phone: z.string().optional(),
     subject: z.enum(CONTACT_SUBJECTS, { message: messages.required }),
-    productCategory: z.string().optional(),
+    productCategories: z.array(z.string()).optional(),
     message: z.string().min(10, messages.required),
   })
 }

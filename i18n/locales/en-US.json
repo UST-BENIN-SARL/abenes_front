@@ -55,6 +55,7 @@
         "email": "Email",
         "email_placeholder": "Enter your email",
         "phone": "Phone / WhatsApp",
+        "phone_input_placeholder": "Enter your phone number",
         "subject": "Request type",
         "subject_placeholder": "Select a request type...",
         "subjects": {
@@ -66,7 +67,9 @@
           "other": "Other"
         },
         "product_category": "Related product(s) or service(s)",
-        "product_category_placeholder": "Select a category...",
+        "product_category_placeholder": "Select one or more categories...",
+        "product_category_search_placeholder": "Search a category...",
+        "product_category_empty": "No category found.",
         "product_categories": {
           "diagnostic": "Diagnostic equipment",
           "laboratory": "Laboratory equipment",

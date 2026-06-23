@@ -10,13 +10,13 @@ export default defineEventHandler(async (event) => {
     email: formData.get('email')?.toString() ?? '',
     phone: formData.get('phone')?.toString() ?? '',
     subject: formData.get('subject')?.toString() ?? '',
-    productCategory: formData.get('productCategory')?.toString() ?? '',
-    message: formData.get('message')?.toString() ?? '',
+    productCategories: formData.getAll('productCategories').map((value) => value.toString()),
+    message: formData.get('message')?.toString() ?? ''
   }
 
   const schema = createContactSchema({
     required: 'This field is required.',
-    email: 'Invalid email address.',
+    email: 'Invalid email address.'
   })
 
   const result = schema.safeParse(payload)
