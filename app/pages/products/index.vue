@@ -70,7 +70,7 @@
             size="icon-sm"
             class="text-(--black)"
             :disabled="currentPage === 1"
-            :aria-label="$t('pages.products.pagination.prev')"
+            :aria-label="$t('common.pagination.prev')"
             @click="currentPage--"
           >
             <ChevronLeft class="size-4" />
@@ -94,7 +94,7 @@
             size="icon-sm"
             class="text-(--black)"
             :disabled="currentPage === totalPages"
-            :aria-label="$t('pages.products.pagination.next')"
+            :aria-label="$t('common.pagination.next')"
             @click="currentPage++"
           >
             <ChevronRight class="size-4" />

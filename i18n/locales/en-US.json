@@ -10,6 +10,10 @@
     "actions": {
       "close": "Close"
     },
+    "pagination": {
+      "prev": "Previous page",
+      "next": "Next page"
+    },
     "breadcrumb": {
       "home": "Home"
     },
@@ -113,7 +117,98 @@
     "jobs": {
       "seo_title": "Careers",
       "title": "Careers",
-      "subtitle": "Join a team committed to healthcare across West Africa."
+      "subtitle": "Join a team committed to healthcare across West Africa.",
+      "results_count": "{count} position(s) found",
+      "why_join": {
+        "title": "Why join us?",
+        "items": {
+          "impact": {
+            "title": "A real impact",
+            "description": "Help bring quality healthcare access to thousands of patients across West Africa."
+          },
+          "growth": {
+            "title": "Career growth",
+            "description": "Regular manufacturer training and growth opportunities within an expanding company."
+          },
+          "team": {
+            "title": "A committed team",
+            "description": "Join passionate colleagues in a supportive, hands-on working environment."
+          },
+          "stability": {
+            "title": "A recognized player",
+            "description": "Since 2016, a trusted expertise among hospitals and laboratories across the region."
+          }
+        }
+      },
+      "departments": {
+        "technical": "Technical & After-sales",
+        "sales": "Sales",
+        "logistics": "Logistics & Procurement",
+        "finance": "Finance & Accounting",
+        "hr": "Human Resources"
+      },
+      "contract_types": {
+        "cdi": "Permanent contract",
+        "cdd": "Fixed-term contract",
+        "stage": "Internship",
+        "alternance": "Work-study"
+      },
+      "filters": {
+        "title": "Filter positions",
+        "toggle_cta": "Filters",
+        "search_label": "Search",
+        "search_placeholder": "Title, keyword...",
+        "department_label": "Department",
+        "contract_type_label": "Contract type",
+        "location_label": "Location",
+        "reset": "Reset filters",
+        "show_results": "Show results"
+      },
+      "card": {
+        "cta_details": "View position",
+        "published_on": "Posted on {date}"
+      },
+      "empty": {
+        "title": "No position matches your search",
+        "description": "Try broadening your search or resetting the filters.",
+        "reset_cta": "Reset filters"
+      },
+      "spontaneous": {
+        "title": "Can't find the right role?",
+        "description": "Send us a spontaneous application — we review every profile carefully.",
+        "cta": "Spontaneous application"
+      },
+      "detail": {
+        "missions_title": "Responsibilities",
+        "requirements_title": "Profile",
+        "benefits_title": "Benefits",
+        "apply_cta": "Apply for this position",
+        "similar_title": "Similar positions",
+        "not_found_title": "Position not found",
+        "not_found_description": "This position no longer exists or has already been filled.",
+        "back_to_jobs": "Back to careers"
+      },
+      "apply_form": {
+        "heading": "Apply for this position",
+        "first_name": "First name",
+        "first_name_placeholder": "Enter your first name",
+        "last_name": "Last name",
+        "last_name_placeholder": "Enter your last name",
+        "email": "Email",
+        "email_placeholder": "Enter your email",
+        "phone": "Phone / WhatsApp",
+        "phone_placeholder": "Enter your phone number",
+        "cv_label": "Resume (PDF, DOC, DOCX)",
+        "cv_cta": "Drag your resume or click to browse",
+        "cv_remove": "Remove file",
+        "cv_required": "Please attach your resume.",
+        "message_label": "Motivation message (optional)",
+        "message_placeholder": "A few words about your motivation...",
+        "submit": "Send my application",
+        "submitting": "Sending...",
+        "success": "Your application has been sent, thank you!",
+        "error": "Something went wrong, please try again."
+      }
     },
     "products": {
       "seo_title": "Our products",
@@ -163,10 +258,6 @@
         "not_found_title": "Product not found",
         "not_found_description": "This product does not exist or has been removed from our catalog.",
         "back_to_catalog": "Back to catalog"
-      },
-      "pagination": {
-        "prev": "Previous page",
-        "next": "Next page"
       }
     },
     "services": {

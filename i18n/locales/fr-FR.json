@@ -10,6 +10,10 @@
     "actions": {
       "close": "Fermer"
     },
+    "pagination": {
+      "prev": "Page précédente",
+      "next": "Page suivante"
+    },
     "breadcrumb": {
       "home": "Accueil"
     },
@@ -113,7 +117,98 @@
     "jobs": {
       "seo_title": "Carrières",
       "title": "Carrières",
-      "subtitle": "Rejoignez une équipe engagée au service de la santé en Afrique de l'Ouest."
+      "subtitle": "Rejoignez une équipe engagée au service de la santé en Afrique de l'Ouest.",
+      "results_count": "{count} offre(s) trouvée(s)",
+      "why_join": {
+        "title": "Pourquoi nous rejoindre ?",
+        "items": {
+          "impact": {
+            "title": "Un impact concret",
+            "description": "Contribuez à l'accès à des soins de qualité pour des milliers de patients en Afrique de l'Ouest."
+          },
+          "growth": {
+            "title": "Évolution de carrière",
+            "description": "Formations constructeur régulières et perspectives d'évolution au sein d'une entreprise en croissance."
+          },
+          "team": {
+            "title": "Une équipe engagée",
+            "description": "Rejoignez des collègues passionnés, dans un environnement de travail bienveillant et formateur."
+          },
+          "stability": {
+            "title": "Un acteur reconnu",
+            "description": "Depuis 2016, une expertise reconnue auprès des hôpitaux et laboratoires de la région."
+          }
+        }
+      },
+      "departments": {
+        "technical": "Service technique & SAV",
+        "sales": "Commercial & Ventes",
+        "logistics": "Logistique & Achats",
+        "finance": "Finance & Comptabilité",
+        "hr": "Ressources humaines"
+      },
+      "contract_types": {
+        "cdi": "CDI",
+        "cdd": "CDD",
+        "stage": "Stage",
+        "alternance": "Alternance"
+      },
+      "filters": {
+        "title": "Filtrer les offres",
+        "toggle_cta": "Filtres",
+        "search_label": "Recherche",
+        "search_placeholder": "Intitulé, mot-clé...",
+        "department_label": "Département",
+        "contract_type_label": "Type de contrat",
+        "location_label": "Lieu",
+        "reset": "Réinitialiser les filtres",
+        "show_results": "Voir les résultats"
+      },
+      "card": {
+        "cta_details": "Voir l'offre",
+        "published_on": "Publiée le {date}"
+      },
+      "empty": {
+        "title": "Aucune offre ne correspond à votre recherche",
+        "description": "Essayez d'élargir votre recherche ou de réinitialiser les filtres.",
+        "reset_cta": "Réinitialiser les filtres"
+      },
+      "spontaneous": {
+        "title": "Vous ne trouvez pas le poste idéal ?",
+        "description": "Envoyez-nous une candidature spontanée : nous étudions chaque profil avec attention.",
+        "cta": "Candidature spontanée"
+      },
+      "detail": {
+        "missions_title": "Missions",
+        "requirements_title": "Profil recherché",
+        "benefits_title": "Avantages",
+        "apply_cta": "Postuler à cette offre",
+        "similar_title": "Offres similaires",
+        "not_found_title": "Offre introuvable",
+        "not_found_description": "Cette offre n'existe plus ou a déjà été pourvue.",
+        "back_to_jobs": "Retour aux offres"
+      },
+      "apply_form": {
+        "heading": "Postuler à cette offre",
+        "first_name": "Prénom",
+        "first_name_placeholder": "Entrez votre prénom",
+        "last_name": "Nom",
+        "last_name_placeholder": "Entrez votre nom",
+        "email": "Email",
+        "email_placeholder": "Entrez votre email",
+        "phone": "Téléphone / WhatsApp",
+        "phone_placeholder": "Entrez votre numéro de téléphone",
+        "cv_label": "CV (PDF, DOC, DOCX)",
+        "cv_cta": "Glisser votre CV ou cliquer pour parcourir",
+        "cv_remove": "Retirer le fichier",
+        "cv_required": "Merci de joindre votre CV.",
+        "message_label": "Message de motivation (facultatif)",
+        "message_placeholder": "Quelques mots sur votre motivation...",
+        "submit": "Envoyer ma candidature",
+        "submitting": "Envoi en cours...",
+        "success": "Votre candidature a bien été envoyée, merci !",
+        "error": "Une erreur est survenue, merci de réessayer."
+      }
     },
     "products": {
       "seo_title": "Nos produits",
@@ -163,10 +258,6 @@
         "not_found_title": "Produit introuvable",
         "not_found_description": "Ce produit n'existe pas ou a été retiré de notre catalogue.",
         "back_to_catalog": "Retour au catalogue"
-      },
-      "pagination": {
-        "prev": "Page précédente",
-        "next": "Page suivante"
       }
     },
     "services": {
