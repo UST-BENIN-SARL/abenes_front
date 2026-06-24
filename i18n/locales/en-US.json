@@ -123,27 +123,6 @@
       "title": "Careers",
       "subtitle": "Join a team committed to healthcare across West Africa.",
       "results_count": "{count} position(s) found",
-      "why_join": {
-        "title": "Why join us?",
-        "items": {
-          "impact": {
-            "title": "A real impact",
-            "description": "Help bring quality healthcare access to thousands of patients across West Africa."
-          },
-          "growth": {
-            "title": "Career growth",
-            "description": "Regular manufacturer training and growth opportunities within an expanding company."
-          },
-          "team": {
-            "title": "A committed team",
-            "description": "Join passionate colleagues in a supportive, hands-on working environment."
-          },
-          "stability": {
-            "title": "A recognized player",
-            "description": "Since 2016, a trusted expertise among hospitals and laboratories across the region."
-          }
-        }
-      },
       "departments": {
         "technical": "Technical & After-sales",
         "sales": "Sales",

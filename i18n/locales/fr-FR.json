@@ -123,27 +123,6 @@
       "title": "Carrières",
       "subtitle": "Rejoignez une équipe engagée au service de la santé en Afrique de l'Ouest.",
       "results_count": "{count} offre(s) trouvée(s)",
-      "why_join": {
-        "title": "Pourquoi nous rejoindre ?",
-        "items": {
-          "impact": {
-            "title": "Un impact concret",
-            "description": "Contribuez à l'accès à des soins de qualité pour des milliers de patients en Afrique de l'Ouest."
-          },
-          "growth": {
-            "title": "Évolution de carrière",
-            "description": "Formations constructeur régulières et perspectives d'évolution au sein d'une entreprise en croissance."
-          },
-          "team": {
-            "title": "Une équipe engagée",
-            "description": "Rejoignez des collègues passionnés, dans un environnement de travail bienveillant et formateur."
-          },
-          "stability": {
-            "title": "Un acteur reconnu",
-            "description": "Depuis 2016, une expertise reconnue auprès des hôpitaux et laboratoires de la région."
-          }
-        }
-      },
       "departments": {
         "technical": "Service technique & SAV",
         "sales": "Commercial & Ventes",

@@ -2,30 +2,6 @@
   <div>
     <SeoManager :title="$t('pages.jobs.seo_title')" />
 
-    <section class="bg-(--background-gray) py-10 sm:py-14">
-      <div class="container mx-auto px-4">
-        <h2 class="text-center text-2xl font-extrabold text-(--primary-dark) sm:text-3xl">
-          {{ $t('pages.jobs.why_join.title') }}
-        </h2>
-
-        <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div
-            v-for="item in whyJoinItems"
-            :key="item.key"
-            class="flex flex-col items-center gap-3 rounded-xl bg-white p-6 text-center shadow-sm"
-          >
-            <div class="flex size-12 items-center justify-center rounded-full bg-(--accent-gray-light) text-(--primary)">
-              <component :is="item.icon" class="size-6" />
-            </div>
-            <p class="font-bold text-(--primary-dark)">{{ $t(`pages.jobs.why_join.items.${item.key}.title`) }}</p>
-            <p class="text-sm text-(--text-secondary)">
-              {{ $t(`pages.jobs.why_join.items.${item.key}.description`) }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <div class="container mx-auto px-4 py-10 sm:py-14">
       <div class="flex flex-col gap-8 lg:flex-row lg:gap-10">
         <aside class="hidden lg:block lg:w-64 lg:shrink-0">
@@ -144,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronLeft, ChevronRight, GraduationCap, HeartHandshake, SearchX, Send, ShieldCheck, SlidersHorizontal, Users } from '@lucide/vue'
+import { ChevronLeft, ChevronRight, SearchX, Send, SlidersHorizontal } from '@lucide/vue'
 import type { JobFiltersState } from '~/types/job'
 
 definePageMeta({
@@ -157,13 +133,6 @@ definePageMeta({
 
 const { t } = useI18n()
 const { jobs } = useJobs()
-
-const whyJoinItems = [
-  { key: 'impact', icon: HeartHandshake },
-  { key: 'growth', icon: GraduationCap },
-  { key: 'team', icon: Users },
-  { key: 'stability', icon: ShieldCheck }
-]
 
 const spontaneousLink = buildSpontaneousApplicationLink()
 
