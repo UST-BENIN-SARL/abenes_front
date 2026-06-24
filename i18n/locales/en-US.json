@@ -36,6 +36,10 @@
         "slide1_subtitle": "Diagnostics, blood glucose monitoring and reliable laboratory solutions for healthcare professionals.",
         "slide2_title": "Complete solutions for your laboratories",
         "slide2_subtitle": "Construction, equipment and reagent supply for hospitals and laboratories across West Africa."
+      },
+      "newsletter_cta": {
+        "title": "Never miss an update",
+        "description": "Subscribe to our newsletter to receive our latest news, product updates and job openings."
       }
     },
     "about": {
@@ -268,7 +272,36 @@
     "news": {
       "seo_title": "News",
       "title": "News",
-      "subtitle": "Follow the latest news from ABENES SARL."
+      "subtitle": "Follow the latest news from ABENES SARL.",
+      "results_count": "{count} article(s) found",
+      "categories": {
+        "all": "All news",
+        "company": "Company life",
+        "products": "Products & innovation",
+        "events": "Events & trade shows",
+        "partnerships": "Partnerships",
+        "health": "Public health"
+      },
+      "filters": {
+        "search_placeholder": "Search an article..."
+      },
+      "card": {
+        "cta_details": "Read more",
+        "reading_time": "{minutes} min read",
+        "published_on": "{date}"
+      },
+      "empty": {
+        "title": "No article matches your search",
+        "description": "Try another keyword or category.",
+        "reset_cta": "Reset"
+      },
+      "detail": {
+        "keywords_label": "Keywords",
+        "related_title": "Related articles",
+        "not_found_title": "Article not found",
+        "not_found_description": "This article does not exist or has been removed.",
+        "back_to_news": "Back to news"
+      }
     },
     "partners": {
       "seo_title": "Partners",

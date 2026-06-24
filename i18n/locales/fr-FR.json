@@ -36,6 +36,10 @@
         "slide1_subtitle": "Diagnostic, surveillance de la glycémie et solutions de laboratoire fiables, au service des professionnels de santé.",
         "slide2_title": "Des solutions complètes pour vos laboratoires",
         "slide2_subtitle": "Construction, équipement et fourniture de réactifs pour hôpitaux et laboratoires en Afrique de l'Ouest."
+      },
+      "newsletter_cta": {
+        "title": "Ne manquez aucune actualité",
+        "description": "Inscrivez-vous à notre newsletter pour recevoir nos actualités, nouveautés produits et offres d'emploi."
       }
     },
     "about": {
@@ -268,7 +272,36 @@
     "news": {
       "seo_title": "Actualités",
       "title": "Actualités",
-      "subtitle": "Suivez les dernières actualités d'ABENES SARL."
+      "subtitle": "Suivez les dernières actualités d'ABENES SARL.",
+      "results_count": "{count} article(s) trouvé(s)",
+      "categories": {
+        "all": "Toutes les actualités",
+        "company": "Vie de l'entreprise",
+        "products": "Produits & innovations",
+        "events": "Événements & salons",
+        "partnerships": "Partenariats",
+        "health": "Santé publique"
+      },
+      "filters": {
+        "search_placeholder": "Rechercher un article..."
+      },
+      "card": {
+        "cta_details": "Lire la suite",
+        "reading_time": "{minutes} min de lecture",
+        "published_on": "{date}"
+      },
+      "empty": {
+        "title": "Aucun article ne correspond à votre recherche",
+        "description": "Essayez un autre mot-clé ou une autre catégorie.",
+        "reset_cta": "Réinitialiser"
+      },
+      "detail": {
+        "keywords_label": "Mots-clés",
+        "related_title": "Articles similaires",
+        "not_found_title": "Article introuvable",
+        "not_found_description": "Cet article n'existe pas ou a été retiré.",
+        "back_to_news": "Retour aux actualités"
+      }
     },
     "partners": {
       "seo_title": "Partenaires",
