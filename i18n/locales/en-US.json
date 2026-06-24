@@ -246,7 +246,35 @@
     "services": {
       "seo_title": "Our services",
       "title": "Our services",
-      "subtitle": "Installation, maintenance and support for your equipment."
+      "subtitle": "Installation, maintenance and support for your equipment.",
+      "journey": {
+        "steps": {
+          "consulting": {
+            "title": "Consulting & needs assessment",
+            "description": "We review your needs, budget constraints and activity to recommend the most suitable equipment."
+          },
+          "supply": {
+            "title": "Equipment supply",
+            "description": "Diagnostic, medical furniture, laboratory equipment, reagents: we supply reliable equipment from recognized manufacturers."
+          },
+          "installation": {
+            "title": "Installation & commissioning",
+            "description": "Our technical team installs and commissions your equipment to standard, directly on your premises."
+          },
+          "training": {
+            "title": "Staff training",
+            "description": "We train your medical and technical teams to use and maintain the installed equipment day to day."
+          },
+          "maintenance": {
+            "title": "Maintenance & after-sales",
+            "description": "Preventive and corrective maintenance carried out by our biomedical technicians, to limit service interruptions."
+          },
+          "parts": {
+            "title": "Spare parts",
+            "description": "A spare parts stock available for fast intervention and to extend the lifespan of your equipment."
+          }
+        }
+      }
     },
     "news": {
       "seo_title": "News",

@@ -246,7 +246,35 @@
     "services": {
       "seo_title": "Nos services",
       "title": "Nos services",
-      "subtitle": "Installation, maintenance et accompagnement pour vos équipements."
+      "subtitle": "Installation, maintenance et accompagnement pour vos équipements.",
+      "journey": {
+        "steps": {
+          "consulting": {
+            "title": "Conseil & étude de besoins",
+            "description": "Nous analysons vos besoins, vos contraintes budgétaires et votre activité pour vous recommander les équipements les plus adaptés."
+          },
+          "supply": {
+            "title": "Fourniture d'équipements",
+            "description": "Diagnostic, mobilier médical, équipement de laboratoire, réactifs : nous fournissons des équipements fiables, sélectionnés auprès de fabricants reconnus."
+          },
+          "installation": {
+            "title": "Installation & mise en service",
+            "description": "Notre équipe technique installe et met en service vos équipements dans le respect des normes, directement dans vos locaux."
+          },
+          "training": {
+            "title": "Formation des équipes",
+            "description": "Nous formons vos équipes soignantes et techniques à l'utilisation et à l'entretien quotidien des équipements installés."
+          },
+          "maintenance": {
+            "title": "Maintenance & SAV",
+            "description": "Maintenance préventive et corrective assurée par nos techniciens biomédicaux, pour limiter les interruptions de service."
+          },
+          "parts": {
+            "title": "Pièces détachées",
+            "description": "Un stock de pièces détachées disponible pour intervenir rapidement et prolonger la durée de vie de vos équipements."
+          }
+        }
+      }
     },
     "news": {
       "seo_title": "Actualités",
