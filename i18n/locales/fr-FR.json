@@ -73,6 +73,7 @@
         "product_categories": {
           "diagnostic": "Équipement de diagnostic",
           "laboratory": "Équipement de laboratoire",
+          "furniture": "Mobilier médical & hospitalier",
           "reagents": "Réactifs & consommables",
           "maintenance": "Maintenance & SAV",
           "parts": "Pièces détachées",
@@ -80,6 +81,7 @@
         },
         "message": "Votre message",
         "message_placeholder": "Décrivez votre besoin, la quantité souhaitée, le délai...",
+        "quote_message_template": "Je souhaite recevoir un devis pour : {product}.\n\nQuantité souhaitée : \nDélai souhaité : ",
         "attachment": "Document joint (cahier des charges, bon de commande...)",
         "attachment_cta": "Glisser un fichier ou cliquer pour parcourir",
         "attachment_remove": "Retirer le fichier",
@@ -116,7 +118,56 @@
     "products": {
       "seo_title": "Nos produits",
       "title": "Nos produits",
-      "subtitle": "Équipements médicaux et de laboratoire sélectionnés pour leur fiabilité."
+      "subtitle": "Équipements médicaux et de laboratoire sélectionnés pour leur fiabilité.",
+      "results_count": "{count} produit(s) trouvé(s)",
+      "filters": {
+        "title": "Filtrer les produits",
+        "toggle_cta": "Filtres",
+        "search_label": "Recherche",
+        "search_placeholder": "Nom, référence, marque...",
+        "category_label": "Catégorie",
+        "brand_label": "Marque",
+        "availability_label": "Disponibilité",
+        "reset": "Réinitialiser les filtres",
+        "show_results": "Voir les résultats"
+      },
+      "sort": {
+        "label": "Trier par",
+        "featured": "Mis en avant",
+        "name_asc": "Nom (A → Z)",
+        "name_desc": "Nom (Z → A)"
+      },
+      "availability": {
+        "in_stock": "En stock",
+        "on_order": "Sur commande",
+        "quote_only": "Disponible sur devis"
+      },
+      "card": {
+        "quote_badge": "Sur devis",
+        "cta_details": "Voir le détail",
+        "cta_quote": "Demander un devis"
+      },
+      "empty": {
+        "title": "Aucun produit ne correspond à votre recherche",
+        "description": "Essayez d'élargir votre recherche ou de réinitialiser les filtres.",
+        "reset_cta": "Réinitialiser les filtres"
+      },
+      "detail": {
+        "highlights_title": "Points forts",
+        "description_title": "Description",
+        "specs_title": "Caractéristiques techniques",
+        "datasheet_cta": "Télécharger la fiche technique (PDF)",
+        "quote_notice": "Prix disponible sur demande de devis.",
+        "cta_quote": "Demander un devis",
+        "related_title": "Produits similaires",
+        "not_found_title": "Produit introuvable",
+        "not_found_description": "Ce produit n'existe pas ou a été retiré de notre catalogue.",
+        "back_to_catalog": "Retour au catalogue"
+      },
+      "pagination": {
+        "prev": "Page précédente",
+        "next": "Page suivante"
+      }
     },
     "services": {
       "seo_title": "Nos services",

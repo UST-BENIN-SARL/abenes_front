@@ -8,6 +8,7 @@ export function usePageBanner() {
 
   const title = computed(() => {
     if (!meta.value) return ''
+    if (meta.value.title) return meta.value.title
     if (meta.value.titleParam) {
       return String(route.params[meta.value.titleParam] ?? '')
     }
@@ -25,7 +26,7 @@ export function usePageBanner() {
       crumbs.push({ label: t(meta.value.parentKey), to: meta.value.parentTo })
     }
 
-    if (meta.value.titleParam) {
+    if (meta.value.title || meta.value.titleParam) {
       crumbs.push({ label: title.value })
     } else if (meta.value.breadcrumbKey) {
       crumbs.push({ label: t(meta.value.breadcrumbKey) })

@@ -73,6 +73,7 @@
         "product_categories": {
           "diagnostic": "Diagnostic equipment",
           "laboratory": "Laboratory equipment",
+          "furniture": "Medical & hospital furniture",
           "reagents": "Reagents & consumables",
           "maintenance": "Maintenance & after-sales",
           "parts": "Spare parts",
@@ -80,6 +81,7 @@
         },
         "message": "Your message",
         "message_placeholder": "Describe your needs, desired quantity, deadline...",
+        "quote_message_template": "I would like to receive a quote for: {product}.\n\nDesired quantity: \nDesired timeline: ",
         "attachment": "Attachment (specifications, purchase order...)",
         "attachment_cta": "Drag a file or click to browse",
         "attachment_remove": "Remove file",
@@ -116,7 +118,56 @@
     "products": {
       "seo_title": "Our products",
       "title": "Our products",
-      "subtitle": "Medical and laboratory equipment selected for its reliability."
+      "subtitle": "Medical and laboratory equipment selected for its reliability.",
+      "results_count": "{count} product(s) found",
+      "filters": {
+        "title": "Filter products",
+        "toggle_cta": "Filters",
+        "search_label": "Search",
+        "search_placeholder": "Name, reference, brand...",
+        "category_label": "Category",
+        "brand_label": "Brand",
+        "availability_label": "Availability",
+        "reset": "Reset filters",
+        "show_results": "Show results"
+      },
+      "sort": {
+        "label": "Sort by",
+        "featured": "Featured",
+        "name_asc": "Name (A → Z)",
+        "name_desc": "Name (Z → A)"
+      },
+      "availability": {
+        "in_stock": "In stock",
+        "on_order": "On order",
+        "quote_only": "Available on request"
+      },
+      "card": {
+        "quote_badge": "Quote on request",
+        "cta_details": "View details",
+        "cta_quote": "Request a quote"
+      },
+      "empty": {
+        "title": "No product matches your search",
+        "description": "Try broadening your search or resetting the filters.",
+        "reset_cta": "Reset filters"
+      },
+      "detail": {
+        "highlights_title": "Highlights",
+        "description_title": "Description",
+        "specs_title": "Technical specifications",
+        "datasheet_cta": "Download technical datasheet (PDF)",
+        "quote_notice": "Pricing available upon quote request.",
+        "cta_quote": "Request a quote",
+        "related_title": "Similar products",
+        "not_found_title": "Product not found",
+        "not_found_description": "This product does not exist or has been removed from our catalog.",
+        "back_to_catalog": "Back to catalog"
+      },
+      "pagination": {
+        "prev": "Previous page",
+        "next": "Next page"
+      }
     },
     "services": {
       "seo_title": "Our services",

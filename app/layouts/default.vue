@@ -5,7 +5,7 @@
       <AppHeader />
     </div>
 
-    <main class="flex-1" :style="{ paddingTop: `${height}px` }">
+    <main class="flex-1" :style="{ paddingTop: `${height}px`, '--fixed-header-height': `${height}px` }">
       <PageBanner
         v-if="showPageBanner"
         :title="pageBannerTitle"

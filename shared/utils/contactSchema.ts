@@ -14,6 +14,7 @@ export type ContactSubject = (typeof CONTACT_SUBJECTS)[number]
 export const PRODUCT_CATEGORIES = [
   'diagnostic',
   'laboratory',
+  'furniture',
   'reagents',
   'maintenance',
   'parts',

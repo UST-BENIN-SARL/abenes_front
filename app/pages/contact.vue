@@ -390,6 +390,22 @@ const form = reactive({
   message: "",
 });
 
+// Pre-fill the form when arriving from a product's "Demander un devis" / "Question sur un produit" CTA.
+const route = useRoute();
+const queryProduct = route.query.product ? String(route.query.product) : "";
+const queryCategory = route.query.category ? String(route.query.category) : "";
+const querySubject = route.query.subject ? String(route.query.subject) : "";
+
+if ((CONTACT_SUBJECTS as readonly string[]).includes(querySubject)) {
+  form.subject = querySubject;
+}
+if ((PRODUCT_CATEGORIES as readonly string[]).includes(queryCategory)) {
+  form.productCategories = [queryCategory];
+}
+if (queryProduct) {
+  form.message = t("pages.contact.form.quote_message_template", { product: queryProduct });
+}
+
 const schema = createContactSchema({
   required: t("validation.required"),
   email: t("validation.email"),
