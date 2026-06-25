@@ -4,6 +4,19 @@
       "en-US": "English",
       "fr-FR": "French"
     },
+    "nav": {
+      "about": "About us",
+      "services": "Our services",
+      "products": "Our products",
+      "news": "News",
+      "jobs": "Careers",
+      "contact": "Contact",
+      "cta": "Request a quote",
+      "search_placeholder": "Search for a product, a service...",
+      "open_menu": "Open menu",
+      "close_menu": "Close menu",
+      "search": "Search"
+    },
     "footer": {
       "rights": "All rights reserved."
     },
