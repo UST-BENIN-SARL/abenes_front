@@ -37,68 +37,11 @@
         "slide2_title": "Complete solutions for your laboratories",
         "slide2_subtitle": "Construction, equipment and reagent supply for hospitals and laboratories across West Africa."
       },
-      "why_us": {
-        "title": "Why choose us",
-        "items": {
-          "delivery": {
-            "title": "Fast delivery",
-            "description": "Receive your equipment in record time thanks to our reliable logistics, across West Africa."
-          },
-          "warranty": {
-            "title": "Legal warranty",
-            "description": "Products covered by a warranty compliant with current regulations."
-          },
-          "consulting": {
-            "title": "Personalized consulting",
-            "description": "Tailored support, from choosing your equipment to requesting a quote."
-          },
-          "pricing": {
-            "title": "Fair pricing",
-            "description": "Competitive prices with no hidden fees, for an excellent value for money."
-          }
-        }
-      },
-      "newsletter_cta": {
-        "title": "Never miss an update",
-        "description": "Subscribe to our newsletter to receive our latest news, product updates and job openings."
-      }
-    },
-    "about": {
-      "seo_title": "About us",
-      "title": "About us",
-      "subtitle": "Discover ABENES SARL's history, mission and values.",
-      "intro": {
-        "title": "About ABENES SARL",
-        "paragraph1": "Located in the West African sub-region, ABENES SARL is a Beninese company headquartered in Cotonou. We specialize in the import and distribution of medical equipment, laboratory equipment, chemicals and laboratory reagents.",
-        "paragraph2": "Through a team of qualified engineers and technicians trained by our partners, we provide maintenance and after-sales services related to our activities, making us a reliable partner for our clients.",
-        "paragraph3": "Our commitment alongside state institutions and technical and financial partners active in health and scientific research makes us experienced players in the field."
-      },
       "stats": {
         "experience": { "value": "+8 years", "label": "serving healthcare" },
         "founded": { "value": "2016", "label": "Year founded" },
         "products": { "value": "+500", "label": "Products distributed" },
         "countries": { "value": "5 countries", "label": "across West Africa" }
-      },
-      "vision": {
-        "title": "Our vision",
-        "text": "To become the innovative leader in supplying high-quality medical and laboratory equipment, empowering researchers and healthcare professionals in Benin and the sub-region to push the boundaries of science and medicine."
-      },
-      "mission": {
-        "title": "Our mission",
-        "items": {
-          "support": {
-            "title": "Support & training",
-            "description": "Provide expert technical support and training programs to maximize the use and impact of our equipment."
-          },
-          "innovation": {
-            "title": "Continuous innovation",
-            "description": "Develop and offer cutting-edge solutions that meet the changing needs of research and healthcare."
-          },
-          "quality": {
-            "title": "Commitment to quality",
-            "description": "Guarantee reliable, high-performing products while meeting the highest safety and efficiency standards."
-          }
-        }
       },
       "activities": {
         "title": "Our areas of activity",
@@ -121,22 +64,39 @@
           }
         }
       },
-      "values": {
-        "title": "Our values",
+      "video": {
+        "title": "Discover ABENES in video"
+      },
+      "why_us": {
+        "title": "Why choose us",
         "items": {
-          "quality": {
-            "title": "Quality",
-            "description": "Only CE-certified products compliant with international standards."
+          "delivery": {
+            "title": "Fast delivery",
+            "description": "Receive your equipment in record time thanks to our reliable logistics, across West Africa."
           },
-          "responsiveness": {
-            "title": "Responsiveness",
-            "description": "Fast delivery and technical support available to minimize your downtime."
+          "warranty": {
+            "title": "Legal warranty",
+            "description": "Products covered by a warranty compliant with current regulations."
           },
-          "partnership": {
-            "title": "Partnership",
-            "description": "We build lasting relationships with every client and institution."
+          "consulting": {
+            "title": "Personalized consulting",
+            "description": "Tailored support, from choosing your equipment to requesting a quote."
+          },
+          "pricing": {
+            "title": "Fair pricing",
+            "description": "Competitive prices with no hidden fees, for an excellent value for money."
           }
         }
+      },
+      "products_teaser": {
+        "title": "Featured products",
+        "subtitle": "A selection of our most requested equipment.",
+        "cta_all": "View all our products"
+      },
+      "services_teaser": {
+        "title": "Our process",
+        "subtitle": "Full support, from consulting to maintenance.",
+        "cta_all": "Discover our services"
       },
       "certifications": {
         "title": "Certifications & approvals",
@@ -157,6 +117,64 @@
           "cote_d_ivoire": "Côte d'Ivoire"
         }
       },
+      "news_teaser": {
+        "title": "Recent news",
+        "subtitle": "The latest news from ABENES SARL.",
+        "cta_all": "View all news"
+      },
+      "newsletter_cta": {
+        "title": "Never miss an update",
+        "description": "Subscribe to our newsletter to receive our latest news, product updates and job openings."
+      }
+    },
+    "about": {
+      "seo_title": "About us",
+      "title": "About us",
+      "subtitle": "Discover ABENES SARL's history, mission and values.",
+      "intro": {
+        "title": "About ABENES SARL",
+        "paragraph1": "Located in the West African sub-region, ABENES SARL is a Beninese company headquartered in Cotonou. We specialize in the import and distribution of medical equipment, laboratory equipment, chemicals and laboratory reagents.",
+        "paragraph2": "Through a team of qualified engineers and technicians trained by our partners, we provide maintenance and after-sales services related to our activities, making us a reliable partner for our clients.",
+        "paragraph3": "Our commitment alongside state institutions and technical and financial partners active in health and scientific research makes us experienced players in the field."
+      },
+      "vision": {
+        "title": "Our vision",
+        "text": "To become the innovative leader in supplying high-quality medical and laboratory equipment, empowering researchers and healthcare professionals in Benin and the sub-region to push the boundaries of science and medicine."
+      },
+      "mission": {
+        "title": "Our mission",
+        "items": {
+          "support": {
+            "title": "Support & training",
+            "description": "Provide expert technical support and training programs to maximize the use and impact of our equipment."
+          },
+          "innovation": {
+            "title": "Continuous innovation",
+            "description": "Develop and offer cutting-edge solutions that meet the changing needs of research and healthcare."
+          },
+          "quality": {
+            "title": "Commitment to quality",
+            "description": "Guarantee reliable, high-performing products while meeting the highest safety and efficiency standards."
+          }
+        }
+      },
+      "values": {
+        "title": "Our values",
+        "items": {
+          "quality": {
+            "title": "Quality",
+            "description": "Only CE-certified products compliant with international standards."
+          },
+          "responsiveness": {
+            "title": "Responsiveness",
+            "description": "Fast delivery and technical support available to minimize your downtime."
+          },
+          "partnership": {
+            "title": "Partnership",
+            "description": "We build lasting relationships with every client and institution."
+          }
+        }
+      },
       "team": {
         "title": "Our team",
         "subtitle": "Dedicated and passionate team members, united to meet your needs with expertise and professionalism.",
@@ -168,9 +186,6 @@
           "maintenance": { "name": "HONFO Gérard", "role": "Head of Maintenance" },
           "quality": { "name": "ODJOUGBÉLÉ Toussaint", "role": "Head of Quality Control & Evaluation" }
         }
-      },
-      "video": {
-        "title": "Discover ABENES in video"
       }
     },
     "contact": {
