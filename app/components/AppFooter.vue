@@ -101,6 +101,7 @@ const navItems = [
 const legalItems = [
   { to: "/news", label: "Actualités" },
   { to: "/jobs", label: "Carrières" },
+  { to: "/quality-policy", label: "Politique qualité" },
   { to: "/privacy-policy", label: "Politique de confidentialité" },
   { to: "/legal-notice", label: "Mentions légales" },
 ];
