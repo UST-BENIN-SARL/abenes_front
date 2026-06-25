@@ -6,23 +6,20 @@
       :class="variants[currentAlert.variant ?? 'info'].bg"
       role="status"
     >
-      <div class="container mx-auto flex items-center gap-2 px-4 py-2 text-sm">
+      <div class="container mx-auto flex items-start gap-2 px-4 py-2 text-sm sm:items-center">
         <component
           :is="variants[currentAlert.variant ?? 'info'].icon"
-          class="size-4 shrink-0"
+          class="mt-0.5 size-4 shrink-0 sm:mt-0"
         />
-        <span class="font-bold"
-          >{{
+        <p class="min-w-0 flex-1">
+          <span class="font-bold">{{
             currentAlert.title ?? variants[currentAlert.variant ?? "info"].title
-          }}
-          :</span
-        >
-        <span class="flex-1">{{ currentAlert.message }}</span>
-
+          }} : </span>{{ currentAlert.message }}
+        </p>
         <UiButton
           variant="ghost"
           size="icon-xs"
-          class="shrink-0 text-current hover:text-black/80"
+          class="mt-0.5 shrink-0 text-current hover:text-black/80 sm:mt-0"
           :aria-label="$t('common.actions.close')"
           @click="dismiss(currentAlert.id)"
         >

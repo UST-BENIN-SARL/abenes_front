@@ -1,5 +1,5 @@
 <template>
-  <UiCard class="p-6 sm:p-8">
+  <UiCard class="overflow-visible p-6 sm:p-8">
     <UiCardHeader class="px-0">
       <UiCardTitle class="text-xl font-bold text-(--primary-dark)">
         {{ $t('pages.jobs.apply_form.heading') }}
@@ -67,7 +67,7 @@
                 default-country="BJ"
                 :auto-default-country="false"
                 :input-options="{ placeholder: $t('pages.jobs.apply_form.phone_placeholder') }"
-                class="job-apply-tel-input"
+                class="job-apply-tel-input w-full"
               />
               <template #fallback>
                 <div class="h-11 rounded-lg border border-(--border) bg-(--background-gray)" />

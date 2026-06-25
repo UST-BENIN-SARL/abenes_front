@@ -10,6 +10,7 @@
       "products": "Nos produits",
       "news": "Actualités",
       "jobs": "Carrières",
+      "partners": "Partenaires",
       "contact": "Contact",
       "cta": "Demander un devis",
       "search_placeholder": "Rechercher un produit, un service...",
@@ -18,7 +19,11 @@
       "search": "Rechercher"
     },
     "footer": {
-      "rights": "Tous droits réservés."
+      "rights": "Tous droits réservés.",
+      "nav_heading": "Navigation",
+      "info_heading": "Informations",
+      "contact_heading": "Contact",
+      "address": "Cotonou, Bénin"
     },
     "actions": {
       "close": "Fermer"
