@@ -25,8 +25,6 @@ definePageMeta({
   }
 })
 
-// `category` is shown as-is on the page: add as many categories as needed by
-// simply giving partners below any category label, no extra setup required.
 const partners: Partner[] = [
   {
     name: 'Ministère de la Santé du Bénin',
