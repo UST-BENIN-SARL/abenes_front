@@ -2,8 +2,8 @@
   <footer class="bg-(--primary-darkest) text-white">
     <div class="container mx-auto flex flex-col items-center gap-10 px-4 py-12 lg:flex-row lg:gap-24">
       <div class="max-w-sm">
-        <NuxtLink to="/" class="inline-block rounded-lg bg-white p-2">
-          <NuxtImg src="/images/logo.png" alt="ABENES SARL" class="h-14 w-auto" />
+        <NuxtLink to="/" class="inline-block">
+          <NuxtImg src="/images/logo.png" alt="ABENES SARL" class="h-14 w-auto brightness-0 invert opacity-80" />
         </NuxtLink>
         <p class="mt-2 text-sm text-white/70">
           {{ $t("common.seo.default_description") }}
